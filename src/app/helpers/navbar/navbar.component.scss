@@ -1,0 +1,89 @@
+.menu-container,.logo{
+position: relative;
+height: 10vh;
+margin: 0 !important;
+padding: 0 !important;
+}
+
+.logo{
+    h1{
+      position: relative;
+      left: 3rem;
+    }
+}
+.sidenav-toggle{
+    overflow: hidden;
+    width: 7rem;
+    height: 5rem;
+    position: relative;
+    button{
+        background-color: rgb(60, 42, 160);
+        position: absolute;
+        top: 6rem;
+        left: .5rem;
+    }
+}
+.line{
+    width: 1.5rem;
+    height: 3px;
+    background: #fff;
+    border-radius: 20px;
+}
+.line-1{
+    position: relative;
+    bottom: 0.2rem;
+}
+.line-2{
+    position: relative;
+    top: 0.2rem;
+}
+.menu{
+    overflow: hidden;
+    li{
+        p{
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        cursor: pointer;
+    }
+    height: 100%;
+    width: 100%;
+    visibility: hidden;
+}
+.menu-items{
+    height: 100%;
+    position: relative;
+}
+.active-marker{
+    width: .8rem;
+    height: .8rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 80%;
+    left: 40%;
+    transform: translate(-50% -50%) !important ;
+}
+.router-active{
+    span{
+        background: #FF7F11;
+    }
+}
+
+@media only screen and (min-width:1024px) and (max-width:1279px){
+    // .menu-items{
+    //     p{
+    //         font-size: .9rem;
+    //     }
+    // }
+
+    .menu{
+        li{
+            p{
+                font-size: .9rem !important;
+            }
+        }
+    }
+}
