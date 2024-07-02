@@ -1,8 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
 
-.hero-lg{
+.hero-container{
     width: 100%;
     height: 100vh;
+}
+.hero-lg{
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+.hero-sm{
+    width: 100%;
+    height: 100%;
+    // background: red;
+    position: relative;
 }
 .test{
     width: 100%;
@@ -27,6 +39,91 @@
     }
     background: #000;
 }
+.background-sm{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    img{
+        height: 70%;
+        width: auto;
+        z-index: 4;
+        position: relative;
+        top: 10vh;
+    }
+    background-color: #000;
+}
+.hero-sm-bg-text{
+    position: absolute;
+    top: 0;
+    height: 40%;
+    width: 100%;
+    background: #000;
+}
+.hero-sm-bg-stagger{
+    color: #fff;
+    font-size: 8.5rem;
+    font-family: "Raleway",serif;
+    font-weight: 900;
+    z-index: 3 !important;
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 9rem;
+    position: relative;
+    // top: 5rem;
+}
+.hero-sm-bg-text-container{
+    height: 8rem;
+    // background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.image-reveal-stagger-layer-sm{
+  width: 100%;
+  height: 100vh;
+//   background: rgb(43, 42, 42);
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+}
+.phrase-layer-sm{
+    position: absolute;
+    width: 100%;
+    height: 60%;
+    top: 40%;
+    // background: red;
+    z-index: 5;
+}
+.phrase-stagger-sm{
+    color: rgb(201, 200, 200);
+    font-size: 3.5rem;
+    // font-family: "Inter",serif;
+    font-family: "Inter", sans-serif!important;
+}
+.phrase-stagger-container-sm{
+    // border: 2px solid red;
+    font-weight: 900;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.image-reveal-stagger-sm{
+    width: 100%;
+    height: 12.5%;
+    // border: 2px solid #fff;
+    background: #272727;
+    // position: relative;
+    // left: 3rem;
+}
+
 .image-reveal-stagger-container{
     height: 100%;
     width: 33%;
@@ -148,28 +245,28 @@ background-color: #000000;
     margin: 0;
     padding: 0;
 }
-.image-reveal-stagger-marker1,.image-reveal-stagger-marker3{
-   position: absolute;
-   left: -50vw;
-   top: 0;
-}
-.image-reveal-stagger-marker2,.image-reveal-stagger-marker4{
-    position: absolute;
-    left: 50vw;
-    top: 0;
- }
+// .image-reveal-stagger-marker1,.image-reveal-stagger-marker3{
+//    position: absolute;
+//    left: -80vw;
+//    top: 0;
+// }
+// .image-reveal-stagger-marker2,.image-reveal-stagger-marker4{
+//     position: absolute;
+//     left: 80vw;
+//     top: 0;
+//  }
 
- .image-reveal-stagger-marker5,.image-reveal-stagger-marker7{
-    position: absolute;
-    left: -50vw;
-    top: 0;
- }
+//  .image-reveal-stagger-marker5,.image-reveal-stagger-marker7{
+//     position: absolute;
+//     left: -80vw;
+//     top: 0;
+//  }
 
- .image-reveal-stagger-marker6,.image-reveal-stagger-marker8{
-    position: absolute;
-    left: -50vw;
-    top: 0;
- }
+//  .image-reveal-stagger-marker6,.image-reveal-stagger-marker8{
+//     position: absolute;
+//     left: -80vw;
+//     top: 0;
+//  }
  .cursor {
     border-right: 0.7em solid rgb(99, 98, 98);
     animation: blink 0.4s steps(1) infinite;
@@ -190,6 +287,32 @@ background-color: #000000;
         img{
             height: 80%;
         }
+    }
+    .hero-sm-bg-stagger{
+        font-size: 4.2rem;
+    }
+    .hero-sm-bg-text-container{
+        height: 4.2rem;
+    }
+    .background-sm{
+        img{
+            height: 60%;
+            width: auto;
+        }
+    }
+    .phrase-stagger-sm{
+        // color: white;
+        font-size: 1.6rem;
+        // font-family: "Oswald",serif;
+    }
+    .phrase-stagger-container-sm{
+        // border: 2px solid red;
+        font-weight: 700;
+        height: 2.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
     }
 }
 

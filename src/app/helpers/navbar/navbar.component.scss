@@ -4,23 +4,24 @@ height: 10vh;
 margin: 0 !important;
 padding: 0 !important;
 }
-
+.menu-container{
+    visibility: hidden;
+}
 .logo{
     h1{
       position: relative;
       left: 3rem;
+      font-weight: 800;
+      color: rgb(146, 145, 145);
     }
 }
 .sidenav-toggle{
     overflow: hidden;
-    width: 7rem;
-    height: 5rem;
-    position: relative;
+    height: 100%;
     button{
-        background-color: rgb(60, 42, 160);
-        position: absolute;
-        top: 6rem;
-        left: .5rem;
+        background: rgb(209, 77, 0) !important;
+        // color: red !important;
+        position: relative;
     }
 }
 .line{
@@ -50,8 +51,8 @@ padding: 0 !important;
         cursor: pointer;
     }
     height: 100%;
-    width: 100%;
-    visibility: hidden;
+    // width: 100%;
+    // visibility: hidden;
 }
 .menu-items{
     height: 100%;
@@ -72,13 +73,15 @@ padding: 0 !important;
     }
 }
 
-@media only screen and (min-width:1024px) and (max-width:1279px){
-    // .menu-items{
-    //     p{
-    //         font-size: .9rem;
-    //     }
-    // }
+@media only screen and (max-width:768px){
+.logo{
+    h1{
+    left: 1.6rem;
+    }
+}
+}
 
+@media only screen and (min-width:1024px) and (max-width:1279px){
     .menu{
         li{
             p{
