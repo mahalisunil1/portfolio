@@ -1,92 +1,67 @@
-.menu-container,.logo{
-position: relative;
-height: 10vh;
-margin: 0 !important;
-padding: 0 !important;
+.nav{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
-.menu-container{
+.logo{
+    height: 100%;
+    h1{
+        margin: 0;
+        padding: 0;
+        position: relative;
+        left: 2.5rem;
+        font-size: 2rem;
+        font-weight: 900;
+        color: rgb(177, 175, 175);
+    }
+}
+// .menu-container{
+// }
+.menu{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
     visibility: hidden;
 }
-.logo{
-    h1{
-      position: relative;
-      left: 3rem;
-      font-weight: 800;
-      color: rgb(146, 145, 145);
-    }
-}
-.sidenav-toggle{
-    overflow: hidden;
-    height: 100%;
-    button{
-        background: rgb(209, 77, 0) !important;
-        // color: red !important;
-        position: relative;
-    }
-}
-.line{
-    width: 1.5rem;
-    height: 3px;
-    background: #fff;
-    border-radius: 20px;
-}
-.line-1{
-    position: relative;
-    bottom: 0.2rem;
-}
-.line-2{
-    position: relative;
-    top: 0.2rem;
-}
-.menu{
-    overflow: hidden;
-    li{
-        p{
-            font-size: 1.3rem;
-            font-weight: 500;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-        }
-        cursor: pointer;
-    }
-    height: 100%;
-    // width: 100%;
-    // visibility: hidden;
-}
 .menu-items{
-    height: 100%;
-    position: relative;
-}
-.active-marker{
-    width: .8rem;
-    height: .8rem;
-    border-radius: 50%;
-    position: absolute;
-    top: 80%;
-    left: 40%;
-    transform: translate(-50% -50%) !important ;
-}
-.router-active{
-    span{
-        background: #FF7F11;
+    p{
+        margin: 0;
+        padding: 0;
+        font-size: 1.2rem;
+        font-weight: 595;
+        color: rgb(241, 241, 241);
     }
+    
+}
+.sidenav-toggle-container{
+    overflow: hidden;
+}
+.sidenav-toggle-button{
+    width: 4rem;
+    height: 4rem;
+    background: #d35a15;
+    border-radius: 100%;
+    outline: none;
+    position: relative;
+    right: 3rem;
+    top: 12vh;
+}
+.lines{
+    width: 60%;
+    height: 5%;
+    background-color: #eeeeee;
+    border-radius: 30px;
 }
 
-@media only screen and (max-width:768px){
+@media only screen and (max-width: 567px){
 .logo{
     h1{
-    left: 1.6rem;
+        font-size: 1.4rem;
     }
 }
+.sidenav-toggle-button{
+    height: 3.5rem;
+    width: 3.5rem;
 }
-
-@media only screen and (min-width:1024px) and (max-width:1279px){
-    .menu{
-        li{
-            p{
-                font-size: .9rem !important;
-            }
-        }
-    }
 }

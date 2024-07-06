@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './landing/landing.component';
 import { BlogComponent } from './blog/blog.component';
-import { AboutComponent } from './about/about.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
     {
@@ -16,16 +15,12 @@ const routes: Routes = [
         component:BlogComponent
     },
     {
-        path:"about",
-        component:AboutComponent
-    },
-    {
         path:"projects",
         component:ProjectsComponent
     },
     {
-        path:"contact",
-        component:ContactComponent
+        path:"about",
+        component:AboutComponent
     },
     {
         path:"**",

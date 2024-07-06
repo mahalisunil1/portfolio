@@ -1,221 +1,261 @@
-
-
-<div class="hero-container">
-
-  <section class="hero-lg d-none d-lg-flex align-items-center justify-content-center">
-    <div class="background-lg">
-      <div class="image-reveal-stagger-container d-flex align-items-center justify-content-center flex-column">
-          <div class="image-reveal-overflow d-flex align-items-center justify-content-center">
-              <div class="image-reveal-stagger image-reveal-stagger-marker1 left-reveal-stagger"></div>
-          </div>
-          <div class="image-reveal-overflow d-flex align-items-center justify-content-center">
-              <div class="image-reveal-stagger image-reveal-stagger-marker2 right-reveal-stagger"></div>
-          </div>
-          <div class="image-reveal-overflow d-flex align-items-center justify-content-center">
-              <div class="image-reveal-stagger image-reveal-stagger-marker3 left-reveal-stagger"></div>
-          </div>
-          <div class="image-reveal-overflow d-flex align-items-center justify-content-center">
-              <div class="image-reveal-stagger image-reveal-stagger-marker4 right-reveal-stagger"></div>
-          </div>
-          <div class="image-reveal-overflow d-flex align-items-center justify-content-center">
-              <div class="image-reveal-stagger image-reveal-stagger-marker5 left-reveal-stagger"></div>
-          </div>
-          <div class="image-reveal-overflow d-flex align-items-center justify-content-center">
-              <div class="image-reveal-stagger image-reveal-stagger-marker6 right-reveal-stagger"></div>
-          </div>
-          <div class="image-reveal-overflow d-flex align-items-center justify-content-center">
-              <div class="image-reveal-stagger image-reveal-stagger-marker7 left-reveal-stagger"></div>
-          </div>
-          <div class="image-reveal-overflow d-flex align-items-center justify-content-center">
-              <div class="image-reveal-stagger image-reveal-stagger-marker8 right-reveal-stagger"></div>
-          </div>
+<div class="hero-wrapper-lg">
+  <div class="scrollX d-flex">
+    <div class="bg-img-lg d-flex align-items-end justify-content-center">
+      <img class="bg-img-lg-marker" [src]="model" alt="" />
+      <div
+        class="img-reveal-stagger-lg-container d-flex align-items-center justify-content-center flex-column"
+      >
+        <div class="img-reveal-stagger-lg img-reveal-left-lg"></div>
+        <div class="img-reveal-stagger-lg img-reveal-right-lg"></div>
+        <div class="img-reveal-stagger-lg img-reveal-left-lg"></div>
+        <div class="img-reveal-stagger-lg img-reveal-right-lg"></div>
+        <div class="img-reveal-stagger-lg img-reveal-left-lg"></div>
+        <div class="img-reveal-stagger-lg img-reveal-right-lg"></div>
+        <div class="img-reveal-stagger-lg img-reveal-left-lg"></div>
+        <div class="img-reveal-stagger-lg img-reveal-right-lg"></div>
+        <div class="img-reveal-stagger-lg img-reveal-left-lg"></div>
+        <div class="img-reveal-stagger-lg img-reveal-right-lg"></div>
+        <div class="img-reveal-stagger-lg img-reveal-left-lg"></div>
+        <div class="img-reveal-stagger-lg img-reveal-right-lg"></div>
       </div>
-      <img class="bg-img-lg" [src]="model" alt="" />
     </div>
-  
     <div
-      class="box-stagger-container-lg d-flex align-items-end justify-content-center flex-column"
+      class="progress-svg-container d-flex align-items-center justify-content-center"
     >
-      <div class="box-stagger-lg box-1-lg d-flex align-items-center justify-content-center gap-2">
-          <div class="gear-container-lg">
-              <mat-icon class="gear-lg">settings</mat-icon>
-          </div>
-          <div class="box-1-animation-lg d-flex align-items-center justify-content-center gap-2">
-              <div class="I-container-lg d-flex align-items-center justify-content-center">
-                 <p class="I-lg">
-                     I
-                 </p>
+      <div class="about-reveal">
+        <h1 class="about-reveal-h1">About</h1>
+      </div>
+      <svg
+        width="388"
+        height="16"
+        viewBox="0 0 388 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="progress-svg"
+      >
+        <path
+          d="M0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8ZM372 8C372 12.4183 375.582 16 380 16C384.418 16 388 12.4183 388 8C388 3.58172 384.418 0 380 0C375.582 0 372 3.58172 372 8ZM8 9.5H380V6.5H8V9.5Z"
+          fill="#fff"
+        />
+        <mask
+          id="mask0_0_1"
+          style="mask-type: alpha"
+          maskUnits="userSpaceOnUse"
+          x="0"
+          y="0"
+          width="388"
+          height="16"
+        >
+          <path
+            d="M0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8ZM372 8C372 12.4183 375.582 16 380 16C384.418 16 388 12.4183 388 8C388 3.58172 384.418 0 380 0C375.582 0 372 3.58172 372 8ZM8 9.5H380V6.5H8V9.5Z"
+            fill="#fff"
+          />
+        </mask>
+        <g mask="url(#mask0_0_1)">
+          <rect class="mask" y="-20" height="36" fill="#d35a15" />
+        </g>
+      </svg>
+    </div>
+    <section
+      class="hero-lg d-flex align-items-center justify-content-center flex-column section-lg"
+    >
+      <div
+        class="box-stagger-layer d-flex align-items-end justify-content-center flex-column"
+      >
+        <div
+          class="box-stagger-lg box-1 d-flex align-items-center justify-content-center"
+        >
+        <div class="gear-container-lg">
+          <mat-icon class="gear-lg">settings</mat-icon>
+        </div>
+          <div
+            class="box-stagger-lg-animation d-flex align-items-center justify-content-center gap-3"
+          >
+            <div class="i-container-lg d-flex align-items-center justify-content-center">
+              <p class="i-lg m-0 p-0">I</p>
+            </div>
+            <div
+              class="box-1-text d-flex align-items-center justify-content-center flex-column"
+            >
+              <div class="typewriter-text-container">
+                <p
+                  class="stagger-marker-box-1-lg type-writer-lg m-0 p-0 box-1-animation-text-stagger-lg"
+                  [class.cursor]="!isParagraph && !isBackspacing"
+                >
+                  {{ eHeader }}
+                </p>
               </div>
-              <div class="d-flex align-items-center justify-content-center flex-column">
-                 <div class="type-writed-text-container-lg d-flex align-items-center justify-content-start">
-                     <div
-                     class="stagger-marker-box-1-lg type-writer-lg"
-                     [class.cursor]="!isParagraph && !isBackspacing"
-                   >
-                     {{ eHeader }}
-                   </div>
-                 </div>
-                 <div
-                 class="plain-text-container-lg d-flex align-items-center justify-content-center d-flex align-items-center justify-content-center"
-               >
-                 <div class="plain-text-lg stagger-marker-box-1-lg">
-                   Solutions For Web.
-                 </div>
-               </div>
+              <div class="plain-text-container">
+                <p class="plain-text m-0 p-0 box-1-animation-text-stagger-lg">Solutions for web.</p>
               </div>
+            </div>
           </div>
-      </div>
-      <div class="box-stagger-lg box-2-lg d-flex align-items-center justify-content-center flex-column">
-  
-          <div class="arrow-container-lg d-flex align-items-center justify-content-center">
-                  <svg width="53" height="97" viewBox="0 0 70 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-lg">
-                      <path class="fill" d="M23.25 93.0007C23.25 94.9337 24.817 96.5007 26.75 96.5007C28.683 96.5007 30.25 94.9337 30.25 93.0007H23.25ZM29.2249 1.48114C27.858 0.114308 25.642 0.114308 24.2751 1.48114L2.00126 23.755C0.634428 25.1218 0.634428 27.3379 2.00126 28.7048C3.3681 30.0716 5.58418 30.0716 6.95101 28.7048L26.75 8.90576L46.549 28.7048C47.9158 30.0716 50.1319 30.0716 51.4987 28.7048C52.8656 27.3379 52.8656 25.1218 51.4987 23.755L29.2249 1.48114ZM30.25 93.0007L30.25 3.95602H23.25L23.25 93.0007H30.25Z" fill="#fff"/>
-                      </svg>
-          </div>
-  
-        <div class="center-phrase-stagger-container-lg d-flex align-items-center justify-content-center">
-          <p class="center-phrase-stagger-lg">From Concept To Deployment,</p>
         </div>
-        <div class="center-phrase-stagger-container-lg d-flex align-items-center justify-content-center">
-          <p class="center-phrase-stagger-lg">Let's Create a Comprehensive</p>
+        <div
+          class="box-stagger-lg box-2 d-flex align-items-center justify-content-center flex-column"
+        >
+          <div class="arrow-container-lg">
+            <svg
+              width="53"
+              height="97"
+              viewBox="0 0 70 100"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="arrow-lg"
+            >
+              <path
+                class="fill"
+                d="M23.25 93.0007C23.25 94.9337 24.817 96.5007 26.75 96.5007C28.683 96.5007 30.25 94.9337 30.25 93.0007H23.25ZM29.2249 1.48114C27.858 0.114308 25.642 0.114308 24.2751 1.48114L2.00126 23.755C0.634428 25.1218 0.634428 27.3379 2.00126 28.7048C3.3681 30.0716 5.58418 30.0716 6.95101 28.7048L26.75 8.90576L46.549 28.7048C47.9158 30.0716 50.1319 30.0716 51.4987 28.7048C52.8656 27.3379 52.8656 25.1218 51.4987 23.755L29.2249 1.48114ZM30.25 93.0007L30.25 3.95602H23.25L23.25 93.0007H30.25Z"
+                fill="#fff"
+              />
+            </svg>
+          </div>
+
+          <div class="phrase-container-lg">
+            <p class="phrase-lg">From Concept To Deployment,</p>
+          </div>
+          <div class="phrase-container-lg">
+            <p class="phrase-lg">Let's Build a Comprehensive</p>
+          </div>
+          <div class="phrase-container-lg">
+            <p class="phrase-lg">Digital Experience.</p>
+          </div>
         </div>
-        <div class="center-phrase-stagger-container-lg d-flex align-items-center justify-content-center">
-          <p class="center-phrase-stagger-lg">Digital Experience.</p>
+        <div
+          class="box-stagger-lg box-3 d-flex align-items-center justify-content-center"
+        >
+          <div class="letter-stagger-container-lg">
+            <h1 class="letter-stagger-lg">E</h1>
+          </div>
+          <div class="letter-stagger-container-lg">
+            <h1 class="letter-stagger-lg">N</h1>
+          </div>
+          <div class="letter-stagger-container-lg">
+            <h1 class="letter-stagger-lg">G</h1>
+          </div>
+          <div class="letter-stagger-container-lg">
+            <h1 class="letter-stagger-lg">I</h1>
+          </div>
+          <div class="letter-stagger-container-lg">
+            <h1 class="letter-stagger-lg">N</h1>
+          </div>
+          <div class="letter-stagger-container-lg">
+            <h1 class="letter-stagger-lg">E</h1>
+          </div>
+          <div class="letter-stagger-container-lg">
+            <h1 class="letter-stagger-lg">E</h1>
+          </div>
+          <div class="letter-stagger-container-lg">
+            <h1 class="letter-stagger-lg">R</h1>
+          </div>
+          <div class="letter-stagger-container-lg">
+            <h1 class="letter-stagger-lg">.</h1>
+          </div>
         </div>
       </div>
-      <div class="box-stagger-lg box-3-lg d-flex align-items-center justify-content-center gap-2">
-          <div class="bottom-stagger-container-lg d-flex align-items-center justify-content-center">
-          <h1 class="bottom-stagger-lg m-0 p-0">
-            E
-          </h1>
-          </div>
-          <div class="bottom-stagger-container-lg d-flex align-items-center justify-content-center">
-              <h1 class="bottom-stagger-lg m-0 p-0">
-                  N
-                </h1>
-          </div>
-          <div class="bottom-stagger-container-lg d-flex align-items-center justify-content-center">
-              <h1 class="bottom-stagger-lg m-0 p-0">
-                  G
-                </h1>
-          </div>
-          <div class="bottom-stagger-container-lg d-flex align-items-center justify-content-center">
-              <h1 class="bottom-stagger-lg m-0 p-0">
-                  I
-                </h1>
-          </div>
-          <div class="bottom-stagger-container-lg d-flex align-items-center justify-content-center">
-              <h1 class="bottom-stagger-lg m-0 p-0">
-                  N
-                </h1>
-          </div>
-          <div class="bottom-stagger-container-lg d-flex align-items-center justify-content-center">
-              <h1 class="bottom-stagger-lg m-0 p-0">
-                  E
-                </h1>
-          </div>
-          <div class="bottom-stagger-container-lg d-flex align-items-center justify-content-center">
-              <h1 class="bottom-stagger-lg m-0 p-0">
-                  E
-                </h1>
-          </div>
-          <div class="bottom-stagger-container-lg d-flex align-items-center justify-content-center">
-              <h1 class="bottom-stagger-lg m-0 p-0">
-                  R
-                </h1>
-          </div>
-          <div class="bottom-stagger-container-lg d-flex align-items-center justify-content-center">
-              <h1 class="bottom-stagger-lg m-0 p-0 bottom-stagger-dot-lg">
-                  .
-                </h1>
-          </div>
+    </section>
+    <section
+      class="about-lg d-flex align-items-center justify-content-end section-lg"
+    >
+      <div class="about-bg-animation-wrapper">
+        <app-liquid-svg-background></app-liquid-svg-background>
       </div>
-    </div>
-  </section>
+      <div class="about-layer2-lg text-white">
+        <div class="about-text-container">
+          <p class="about-text m-0 p-0  about-page-linked-stagger-lg">
+            Hey there, I'm a Sunil Mahali my love for tech began with a simple
+            curiosity about how things work under the hood and it's limitless
+            abstractions. Over the years, I have developed my skills in various
+            programming languages, frameworks, and tools, allowing me to tackle
+            projects with confidence and creativity. Whether it's developing
+            robust web applications, designing scalable systems, or enhancing
+            user experiences, I thrive on the challenges and opportunities
+            present in this field.
+          </p>
+        </div>
 
-  <section class="hero-sm d-lg-none">
+        <div class="services-wrapper-lg text-white">
+          <div class="services-header-container-lg px-4">
+            <h1 class="services-header-lg about-page-linked-stagger-lg">I Can Help You With :-</h1>
+          </div>
+          <div
+            class="services-lg d-flex align-items-center justify-content-start flex-wrap gap-3 p-3"
+          >
+            <div class="web-dev services-item-lg d-flex align-items-center justify-content-center flex-column">
+              <div class="services-title-lg">
+                <h1>Web Development.</h1>
+              </div>
+              <mat-divider class="services-divider-lg"></mat-divider>
+              <div class="services-desc-lg d-flex align-items-center justify-content-center p-1">
+                <p class="services-desc-p-lg m-0 p-0">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis
+                repellendus mollitia, quibusdam quidem consequuntur ipsam. Et
+                saepe ipsum cum omnis officia fugiat nisi nemo nam
+                </p>
+              </div>
+            </div>
+            <div class="api-management services-item-lg d-flex align-items-center justify-content-center flex-column">
+               <div class="services-title-lg">
+                <h1>API Management.</h1>
+              </div>
+              <mat-divider class="services-divider-lg"></mat-divider>
+              <div class="services-desc-lg d-flex align-items-center justify-content-center p-1">
+                <p class="services-desc-p-lg m-0 p-0">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis
+                repellendus mollitia, quibusdam quidem consequuntur ipsam. Et
+                saepe ipsum cum omnis officia fugiat nisi nemo nam
+                </p>
+              </div>
+            </div>
 
-    <div class="hero-sm-bg-text d-flex align-items-center justify-content-center">
-      <div class="hero-sm-bg-text-container">
-        <h1 class="hero-sm-bg-stagger">
-          E
-        </h1>
-      </div>
-      <div class="hero-sm-bg-text-container">
-        <h1 class="hero-sm-bg-stagger">
-          N
-        </h1>
-      </div>
-      <div class="hero-sm-bg-text-container">
-        <h1 class="hero-sm-bg-stagger">
-          G
-        </h1>
-      </div>
-      <div class="hero-sm-bg-text-container">
-        <h1 class="hero-sm-bg-stagger">
-          I
-        </h1>
-      </div>
-      <div class="hero-sm-bg-text-container">
-        <h1 class="hero-sm-bg-stagger">
-          N
-        </h1>
-      </div>
-      <div class="hero-sm-bg-text-container">
-        <h1 class="hero-sm-bg-stagger">
-          E
-        </h1>
-      </div>
-      <div class="hero-sm-bg-text-container">
-        <h1 class="hero-sm-bg-stagger">
-          E
-        </h1>
-      </div>
-      <div class="hero-sm-bg-text-container">
-        <h1 class="hero-sm-bg-stagger">
-          R
-        </h1>
-      </div>
-      <div class="hero-sm-bg-text-container">
-        <h1 class="hero-sm-bg-stagger">
-          .
-        </h1>
-      </div>  
-    </div>
-    <div class="background-sm d-flex align-items-start justify-content-center" >
-      <img class="bg-img-sm" [src]="model" alt="">
-    </div>
+            <div class="digital-marketing services-item-lg d-flex align-items-center justify-content-center flex-column">
+               <div class="services-title-lg">
+                <h1>Digital-Promotions.</h1>
+              </div>
+              <mat-divider class="services-divider-lg"></mat-divider>
+              <div class="services-desc-lg d-flex align-items-center justify-content-center p-1">
+                <p class="services-desc-p-lg m-0 p-0">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis
+                repellendus mollitia, quibusdam quidem consequuntur ipsam. Et
+                saepe ipsum cum omnis officia fugiat nisi nemo nam
+                </p>
+              </div>
+            </div>
+            <div class="seo services-item-lg d-flex align-items-center justify-content-center flex-column">
+               <div class="services-title-lg">
+                <h1>SEO.</h1>
+              </div>
+              <mat-divider class="services-divider-lg"></mat-divider>
+              <div class="services-desc-lg d-flex align-items-center justify-content-center p-1">
+                <p class="services-desc-p-lg m-0 p-0">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis
+                repellendus mollitia, quibusdam quidem consequuntur ipsam. Et
+                saepe ipsum cum omnis officia fugiat nisi nemo nam
+                </p>
+              </div>
+            </div>
 
-    <div class="image-reveal-stagger-layer-sm">
-        <div class="image-reveal-stagger-sm image-reveal-left-sm"></div>
-        <div class="image-reveal-stagger-sm image-reveal-right-sm"></div>
-        <div class="image-reveal-stagger-sm image-reveal-left-sm"></div>
-        <div class="image-reveal-stagger-sm image-reveal-right-sm"></div>
-        <div class="image-reveal-stagger-sm image-reveal-left-sm"></div>
-        <div class="image-reveal-stagger-sm image-reveal-right-sm"></div>
-        <div class="image-reveal-stagger-sm image-reveal-left-sm"></div>
-        <div class="image-reveal-stagger-sm image-reveal-right-sm"></div>
-    </div>
-
-    <div class="phrase-layer-sm d-flex align-items-center justify-content-start flex-column">
-      <div class="phrase-stagger-container-sm">
-        <p class="phrase-stagger-sm">
-          From Concept To Deployment, 
-        </p>
+            <div class="consulting services-item-lg d-flex align-items-center justify-content-center flex-column">
+               <div class="services-title-lg">
+                <h1>Consulting.</h1>
+              </div>
+              <mat-divider class="services-divider-lg"></mat-divider>
+              <div class="services-desc-lg d-flex align-items-center justify-content-center p-1">
+                <p class="services-desc-p-lg m-0 p-0">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis
+                repellendus mollitia, quibusdam quidem consequuntur ipsam. Et
+                saepe ipsum cum omnis officia fugiat nisi nemo nam
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="phrase-stagger-container-sm">
-        <p class="phrase-stagger-sm">
-          Let's Create a Comprehensive 
-        </p>
-      </div>
-      <div class="phrase-stagger-container-sm">
-        <p class="phrase-stagger-sm">
-          Digital Experience. 
-        </p>
-      </div>
-    </div>
+    </section>
+  </div>
+  <section
+    class="contact-lg d-flex align-items-center justify-content-center text-white"
+  >
+    <h1>CONTACT</h1>
   </section>
 </div>
-<!-- <section class="test d-flex align-items-center justify-content-center">
-  <h1>Test</h1>
-</section> -->

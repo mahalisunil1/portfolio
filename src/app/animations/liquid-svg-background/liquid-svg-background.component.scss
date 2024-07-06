@@ -1,0 +1,58 @@
+@keyframes rotateScale {
+    0% { rotate: 0deg; }
+    // 50% { scale: .8 1; }
+    100% { rotate: 360deg; }
+  }
+  
+  :host {
+    --bg-color: #000000;
+    --headline-color: #fff;
+    --gradient-color-1: rgb(25, 22, 94);
+    --gradient-color-2: rgb(14, 19, 87);
+    --gradient-color-3: rgb(12, 83, 39);
+  
+    // background: var(--bg-color);
+    background-image: linear-gradient(45deg,rgb(3, 3, 34),#000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .headline {
+    color: var(--headline-color);
+    font-family: sans-serif;
+    font-size: 50px;
+    mix-blend-mode: difference;
+    
+    @media (min-width: 768px) {
+      font-size: 85px;
+    }
+  }
+  
+  .blob {
+    animation: rotateScale 8s infinite;
+    aspect-ratio: 1;
+    // background-color: rgb(0, 0, 0);
+    background: conic-gradient(from 90deg at 50% 50%, var(--gradient-color-1) 0%, var(--gradient-color-2) 50%, var(--gradient-color-3) 100%);
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35vw;
+  }
+  
+  .blob-scrim {
+    -webkit-backdrop-filter:  blur(16vh);
+    backdrop-filter: blur(16vh);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+  
