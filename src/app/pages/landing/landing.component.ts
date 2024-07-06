@@ -90,6 +90,7 @@ ngAfterViewInit(): void {
     scrollTrigger:{
       trigger:".scrollX",
       start:"45% center",
+      markers:true,
       scrub:1,
       end:3000
     }
