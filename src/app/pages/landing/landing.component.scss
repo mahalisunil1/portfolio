@@ -399,8 +399,82 @@ p{
         height: 3.4rem;
     }
     .phrase-lg{
+        font-size: 2.4rem;
+        // color: green;
+    }
+    .arrow-lg{
+        width: 2.5rem;
+    }
+    .letter-stagger-lg{
+        font-size: 11rem;
+    }
+    .gear-container-lg{
+        mat-icon{
+            transform: scale(1.5);
+        }
+    }
+    .about-text{
+        font-size: 1rem;
+        line-height: 2rem;
+    }
+    .services-header-lg{
+      font-size: 1.4rem;
+    }
+    .services-title-lg{
+        h1{
+            font-size: 1rem;
+            line-height: 1.6rem;
+        }
+    }
+    .services-desc-lg{
+        p{
+            font-size: .6rem;
+            line-height: 1rem;
+        }
+    }
+    .about-reveal{
+        position: absolute;
+      right: 0%;
+      top: 15%;
+      overflow: hidden;
+      h1{
+        font-weight: 900;
+        letter-spacing: 1px;
+        margin: 0;
+        padding: 0;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  @media only screen and (min-width:1401px) and (max-width:1600px){
+    .progress-svg-container{
+        width: 15%;
+    }
+    .i-container-lg{
+        height: 5rem;
+    }
+    .i-lg{
+        font-size: 5rem;
+    }
+    .typewriter-text-container{
+  height: 3rem;
+      p{
+        font-size: 1.5rem;
+      }
+    }
+    .plain-text-container{
+        height: 2rem;
+p{
+    font-size: 1.2rem;
+}
+    }
+    .phrase-container-lg{
+        height: 3.4rem;
+    }
+    .phrase-lg{
         font-size: 2rem;
-        color: green;
+        // color: green;
     }
     .arrow-lg{
         width: 2.5rem;
