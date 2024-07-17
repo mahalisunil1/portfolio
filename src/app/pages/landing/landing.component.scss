@@ -9,26 +9,22 @@
     height: 100vh;
     position: relative;
     z-index: 1;
-}
-.fixed-layer-lg{
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    z-index: 1;
     background: #000;
 }
 
 .bg-img-lg{
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 100%;
-    width: fit-content;
+    width: 18%;
     img{
         height: 95%;
         width: auto;
     }
-    position: relative;
 }
 
-.img-reveal-stagger-layer-lg{
+.img-reveal-stagger-lg-container{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -46,32 +42,24 @@
     width: 50%;
     color: white;
     position: relative;
+    z-index: 2;
 }
 .about-lg{
-    background: #fc9f9f;
-    height: 100vh;
-    width: 100vw;
-    z-index: -1;
-    position: fixed;
-     top: 0;
-     left: 0;
-     ;
-}
-.extra-width{
-    width: 50%;
+    background: #161616;
     height: 100%;
+    width: 50%;
+    z-index: 2;
 }
 .progress-svg-container{
-    position: absolute;
-    top: 12%;
-    left: 25%;
-overflow: hidden;
-    width: 25vw;
-    height: 10vh;
-}
-.progress-svg{
-    position: relative;
-    top: 10vh;
+    position: fixed;
+    width: 20%;
+    height: 20%;
+    overflow: hidden;
+    top: 10%;
+    left: 18%;
+    z-index: 3;
+    transform: translateY(-50%);
+    transform: translateX(-25%);
 }
 
 .box-stagger-layer{
@@ -148,7 +136,6 @@ overflow: hidden;
 .box-2{
     width: 65%;
     position: relative;
-    overflow: hidden;
 }
 .arrow-container-lg{
     position: absolute;
@@ -161,7 +148,6 @@ overflow: hidden;
 }
 .box-3{
     width: 75%;
-    overflow: hidden;
 }
 .letter-stagger-container-lg{
     height: 100%;
@@ -182,17 +168,16 @@ overflow: hidden;
     -webkit-text-fill-color: transparent;
 }
 .about-reveal{
-width: 100%;
-height: 5vh;
-overflow: hidden;
-h1{
-    margin:  0;
+    position: absolute;
+  right: 20%;
+  top: 20%;
+  overflow: hidden;
+  h1{
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin: 0;
     padding: 0;
-    font-size: 1.5rem;
-    position: relative;
-    right: 1.5vw;
-    top: 5vh;
-}
+  }
 }
 .about-bg-animation-wrapper{
     width: 100%;
@@ -202,8 +187,9 @@ h1{
     z-index: 2;
 }
 .about-layer2-lg{
-    height: 100%;
     width: 65%;
+    height: 100%;
+    right: 0;
     position: relative;
     z-index: 3;
 }
@@ -219,6 +205,7 @@ h1{
     line-height: 2.3rem;
     font-family: "Oswald",serif;
     position: relative;
+    top: 50vh;
 }
 .services-wrapper-lg{
     position: absolute;
@@ -235,8 +222,7 @@ h1{
         margin: 0;
         padding: 0;
         position: relative;
-        // top: 50vh;
-        // top: 25vh;
+        top: 50vh;
 }
 .services-header-container-lg{
     overflow: hidden;
@@ -253,54 +239,7 @@ h1{
 .contact-lg{
     height: 100vh;
     width: 100vw;
-    background:#000;
-    position: relative;
-    z-index: 3;
-    overflow: hidden;
-}
-.contact-section-bg-text{
-    overflow: hidden;
-    h1{
-        font-size: 14rem;
-        font-family: "Raleway",serif;
-        line-height: 16rem;
-        font-weight: 1000;
-        background: -webkit-linear-gradient(#eee, #333);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin: 0;
-        padding: 0;
-    }
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 7;
-}
-.grid-layer{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%)translateY(-50%);
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto auto ;
-    z-index: 5;
-}
-.grid-items{
-    border: 0.1rem solid rgb(255,255,255,0.2);
-}
-.testbox{
-    width: 90vw;
-    height: 70vh;
-    background: #0f0f0f;
-    border-radius: 15px;
-    position: absolute;
-    z-index: 6;
-    top: 25%;
-    left: 50%;
-    transform: translateX(-50%);
+    background: #2e2e2e;
 }
 .services-item-lg{
     width: 30%;
@@ -310,10 +249,9 @@ h1{
     backdrop-filter: blur(8vw);
     border-radius: 15px;
     position: relative;
-    opacity: 1;
+    opacity: 0;
     transform: scale(0.5);
     gap: 5%;
-    opacity: 0;
 }
 .services-title-lg{
     width: 80%;
@@ -338,6 +276,10 @@ h1{
     p{
         font-size: .9rem;
     }
+}
+.about-lg {
+  background: transparent;
+  position: relative;
 }
 .cursor {
     border-right: 0.7em solid rgb(99, 98, 98);
@@ -377,6 +319,7 @@ p{
     }
     .phrase-lg{
         font-size: 1.5rem;
+        color: red;
     }
     .arrow-lg{
         width: 2rem;
@@ -394,6 +337,7 @@ p{
         line-height: 1.5rem;
     }
     .about-text-container{
+        // border: 2px solid white;
     }
     .services-header-lg{
       font-size: 1rem;
@@ -411,33 +355,27 @@ p{
         }
     }
     .progress-svg-container{
-        left: 27%;
-    }
-    .progress-svg{
-        width: 75%;
+        width: 10%;
     }
 
     .about-reveal{
+        position: absolute;
+      right: 0%;
+      top: 15%;
+      overflow: hidden;
       h1{
+        font-weight: 900;
+        letter-spacing: 1px;
         margin: 0;
         padding: 0;
         font-size: 1rem;
       }
     }
-    .contact-section-bg-text{
-        h1{
-            font-size: 8rem;
-            line-height: 10rem;
-        }
-    }
   }
 
   @media only screen and (min-width:1280px) and (max-width:1400px){
-    .progress-svg{
-        width: 75%;
-    }
     .progress-svg-container{
-        // border: 2px solid white;
+        width: 15%;
     }
     .i-container-lg{
         height: 5rem;
@@ -495,20 +433,17 @@ p{
         }
     }
     .about-reveal{
-    
+        position: absolute;
+      right: 0%;
+      top: 15%;
+      overflow: hidden;
       h1{
-        // font-weight: 900;
-        // letter-spacing: 1px;
+        font-weight: 900;
+        letter-spacing: 1px;
         margin: 0;
         padding: 0;
         font-size: 1.2rem;
       }
-    }
-    .contact-section-bg-text{
-        h1{
-            font-size: 10rem;
-            line-height: 12rem;
-        }
     }
   }
 
@@ -583,11 +518,5 @@ p{
         padding: 0;
         font-size: 1.2rem;
       }
-    }
-    .contact-section-bg-text{
-        h1{
-            font-size: 12rem;
-            line-height: 14rem;
-        }
     }
   }
