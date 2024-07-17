@@ -2,19 +2,17 @@
     position: relative;
 }
 .nav-wrapper{
-    width: 100vw;
-    height: 12vh;
     position: fixed;
     top: 0;
+    left: 0;
     z-index: 999;
+    height: 11vh;
+    width: 100vw;
 }
 .routes-wrapper{
     position: absolute;
     top: 0;
+    left: 0;
+    height: fit-content;
+    width: fit-content;
 }
-
-// @media only screen and (max-width: 768px){
-//     .nav-wrapper{
-//         height: 10vh;
-//     }
-// }

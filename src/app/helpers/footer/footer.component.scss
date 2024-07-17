@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+.footer-section{
+width: 100%;
+height: 100%;
+background: #000;
+}
+.footer{
+    width: 100%;
+    height: 30%;
+}
+.list-inline{
+    li{
+        p{
+            span{
+                color: #ec8815;
+                font-family: "Oswald",serif;
+            }
+        }
+    }
+}
+
+.test{
+    background: #9cf79c;
+width: 100%;
+height: 100%;
+}

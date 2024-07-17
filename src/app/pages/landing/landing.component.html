@@ -1,9 +1,10 @@
 <div class="hero-wrapper-lg">
-  <div class="scrollX d-flex">
-    <div class="bg-img-lg d-flex align-items-end justify-content-center">
+
+  <div class="fixed-layer-lg">
+       <div class="bg-img-lg d-flex align-items-end justify-content-center">
       <img class="bg-img-lg-marker" [src]="model" alt="" />
       <div
-        class="img-reveal-stagger-lg-container d-flex align-items-center justify-content-center flex-column"
+        class="img-reveal-stagger-layer-lg d-flex align-items-center justify-content-center flex-column"
       >
         <div class="img-reveal-stagger-lg img-reveal-left-lg"></div>
         <div class="img-reveal-stagger-lg img-reveal-right-lg"></div>
@@ -19,10 +20,11 @@
         <div class="img-reveal-stagger-lg img-reveal-right-lg"></div>
       </div>
     </div>
-    <div
-      class="progress-svg-container d-flex align-items-center justify-content-center"
+
+       <div
+      class="progress-svg-container d-flex align-items-center justify-content-center flex-column"
     >
-      <div class="about-reveal">
+      <div class="about-reveal d-flex align-items-center justify-content-end">
         <h1 class="about-reveal-h1">About</h1>
       </div>
       <svg
@@ -56,109 +58,12 @@
         </g>
       </svg>
     </div>
-    <section
-      class="hero-lg d-flex align-items-center justify-content-center flex-column section-lg"
-    >
-      <div
-        class="box-stagger-layer d-flex align-items-end justify-content-center flex-column"
-      >
-        <div
-          class="box-stagger-lg box-1 d-flex align-items-center justify-content-center"
-        >
-        <div class="gear-container-lg">
-          <mat-icon class="gear-lg">settings</mat-icon>
-        </div>
-          <div
-            class="box-stagger-lg-animation d-flex align-items-center justify-content-center gap-3"
-          >
-            <div class="i-container-lg d-flex align-items-center justify-content-center">
-              <p class="i-lg m-0 p-0">I</p>
-            </div>
-            <div
-              class="box-1-text d-flex align-items-center justify-content-center flex-column"
-            >
-              <div class="typewriter-text-container">
-                <p
-                  class="stagger-marker-box-1-lg type-writer-lg m-0 p-0 box-1-animation-text-stagger-lg"
-                  [class.cursor]="!isParagraph && !isBackspacing"
-                >
-                  {{ eHeader }}
-                </p>
-              </div>
-              <div class="plain-text-container">
-                <p class="plain-text m-0 p-0 box-1-animation-text-stagger-lg">Solutions for web.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="box-stagger-lg box-2 d-flex align-items-center justify-content-center flex-column"
-        >
-          <div class="arrow-container-lg">
-            <svg
-              width="53"
-              height="97"
-              viewBox="0 0 70 100"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="arrow-lg"
-            >
-              <path
-                class="fill"
-                d="M23.25 93.0007C23.25 94.9337 24.817 96.5007 26.75 96.5007C28.683 96.5007 30.25 94.9337 30.25 93.0007H23.25ZM29.2249 1.48114C27.858 0.114308 25.642 0.114308 24.2751 1.48114L2.00126 23.755C0.634428 25.1218 0.634428 27.3379 2.00126 28.7048C3.3681 30.0716 5.58418 30.0716 6.95101 28.7048L26.75 8.90576L46.549 28.7048C47.9158 30.0716 50.1319 30.0716 51.4987 28.7048C52.8656 27.3379 52.8656 25.1218 51.4987 23.755L29.2249 1.48114ZM30.25 93.0007L30.25 3.95602H23.25L23.25 93.0007H30.25Z"
-                fill="#fff"
-              />
-            </svg>
-          </div>
-
-          <div class="phrase-container-lg">
-            <p class="phrase-lg">From Concept To Deployment,</p>
-          </div>
-          <div class="phrase-container-lg">
-            <p class="phrase-lg">Let's Build a Comprehensive</p>
-          </div>
-          <div class="phrase-container-lg">
-            <p class="phrase-lg">Digital Experience.</p>
-          </div>
-        </div>
-        <div
-          class="box-stagger-lg box-3 d-flex align-items-center justify-content-center"
-        >
-          <div class="letter-stagger-container-lg">
-            <h1 class="letter-stagger-lg">E</h1>
-          </div>
-          <div class="letter-stagger-container-lg">
-            <h1 class="letter-stagger-lg">N</h1>
-          </div>
-          <div class="letter-stagger-container-lg">
-            <h1 class="letter-stagger-lg">G</h1>
-          </div>
-          <div class="letter-stagger-container-lg">
-            <h1 class="letter-stagger-lg">I</h1>
-          </div>
-          <div class="letter-stagger-container-lg">
-            <h1 class="letter-stagger-lg">N</h1>
-          </div>
-          <div class="letter-stagger-container-lg">
-            <h1 class="letter-stagger-lg">E</h1>
-          </div>
-          <div class="letter-stagger-container-lg">
-            <h1 class="letter-stagger-lg">E</h1>
-          </div>
-          <div class="letter-stagger-container-lg">
-            <h1 class="letter-stagger-lg">R</h1>
-          </div>
-          <div class="letter-stagger-container-lg">
-            <h1 class="letter-stagger-lg">.</h1>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section
-      class="about-lg d-flex align-items-center justify-content-end section-lg"
+  </div>
+  <section
+      class="about-lg d-flex align-items-center justify-content-end"
     >
       <div class="about-bg-animation-wrapper">
-        <app-liquid-svg-background></app-liquid-svg-background>
+        <app-bg-light-rim></app-bg-light-rim>
       </div>
       <div class="about-layer2-lg text-white">
         <div class="about-text-container">
@@ -252,10 +157,161 @@
         </div>
       </div>
     </section>
+
+  <div class="scrollX d-flex align-items-center justify-content-center" #scrollX>
+    <section
+      class="hero-lg d-flex align-items-center justify-content-center flex-column section-lg"
+    >
+      <div
+        class="box-stagger-layer d-flex align-items-end justify-content-center flex-column"
+      >
+        <div  class="box-stagger-lg box-1 d-flex align-items-center justify-content-center">
+          <div class="gear-container-lg">
+            <mat-icon class="gear-lg">settings</mat-icon>
+          </div>
+
+          <div
+          class="box-stagger-lg-animation d-flex align-items-center justify-content-center gap-3"
+        >
+          <div class="i-container-lg d-flex align-items-center justify-content-center">
+            <p class="i-lg m-0 p-0">I</p>
+          </div>
+          <div
+            class="box-1-text d-flex align-items-center justify-content-center flex-column"
+          >
+            <div class="typewriter-text-container">
+              <p
+                class="stagger-marker-box-1-lg type-writer-lg m-0 p-0 box-1-animation-text-stagger-lg"
+                [class.cursor]="!isParagraph && !isBackspacing"
+              >
+                {{ eHeader }}
+              </p>
+            </div>
+            <div class="plain-text-container">
+              <p class="plain-text m-0 p-0 box-1-animation-text-stagger-lg">Solutions for web.</p>
+            </div>
+          </div>
+        </div>
+
+         
+        </div>
+        <div
+          class="box-stagger-lg box-2 d-flex align-items-center justify-content-center flex-column"
+        >
+          <div class="arrow-container-lg">
+            <svg
+              width="53"
+              height="97"
+              viewBox="0 0 70 100"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="arrow-lg"
+            >
+              <path
+                class="fill"
+                d="M23.25 93.0007C23.25 94.9337 24.817 96.5007 26.75 96.5007C28.683 96.5007 30.25 94.9337 30.25 93.0007H23.25ZM29.2249 1.48114C27.858 0.114308 25.642 0.114308 24.2751 1.48114L2.00126 23.755C0.634428 25.1218 0.634428 27.3379 2.00126 28.7048C3.3681 30.0716 5.58418 30.0716 6.95101 28.7048L26.75 8.90576L46.549 28.7048C47.9158 30.0716 50.1319 30.0716 51.4987 28.7048C52.8656 27.3379 52.8656 25.1218 51.4987 23.755L29.2249 1.48114ZM30.25 93.0007L30.25 3.95602H23.25L23.25 93.0007H30.25Z"
+                fill="#fff"
+              />
+            </svg>
+          </div>
+
+          <div class="phrase-container-lg">
+            <p class="phrase-lg">From Concept To Deployment,</p>
+          </div>
+          <div class="phrase-container-lg">
+            <p class="phrase-lg">Let's Build a Comprehensive</p>
+          </div>
+          <div class="phrase-container-lg">
+            <p class="phrase-lg">Digital Experience.</p>
+          </div>
+        </div>
+        <div
+          class="box-stagger-lg box-3 d-flex align-items-center justify-content-center"
+        >
+          <div class="letter-stagger-container-lg">
+            <h1 class="letter-stagger-lg">E</h1>
+          </div>
+          <div class="letter-stagger-container-lg">
+            <h1 class="letter-stagger-lg">N</h1>
+          </div>
+          <div class="letter-stagger-container-lg">
+            <h1 class="letter-stagger-lg">G</h1>
+          </div>
+          <div class="letter-stagger-container-lg">
+            <h1 class="letter-stagger-lg">I</h1>
+          </div>
+          <div class="letter-stagger-container-lg">
+            <h1 class="letter-stagger-lg">N</h1>
+          </div>
+          <div class="letter-stagger-container-lg">
+            <h1 class="letter-stagger-lg">E</h1>
+          </div>
+          <div class="letter-stagger-container-lg">
+            <h1 class="letter-stagger-lg">E</h1>
+          </div>
+          <div class="letter-stagger-container-lg">
+            <h1 class="letter-stagger-lg">R</h1>
+          </div>
+          <div class="letter-stagger-container-lg">
+            <h1 class="letter-stagger-lg">.</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="extra-width section-lg">
+
+    </div>
+    
   </div>
   <section
-    class="contact-lg d-flex align-items-center justify-content-center text-white"
+    class="contact-lg"
   >
-    <h1>CONTACT</h1>
+    <div class="contact-section-bg-text">
+      <h1>Contact.</h1>
+    </div>
+    <div class="grid-layer">
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+      <div class="grid-items"></div>
+    </div>
+
+    <div class="testbox"></div>
   </section>
 </div>

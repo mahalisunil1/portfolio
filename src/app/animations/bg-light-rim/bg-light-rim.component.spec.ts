@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContactComponent } from './contact.component';
+import { BgLightRimComponent } from './bg-light-rim.component';
 
-describe('ContactComponent', () => {
-  let component: ContactComponent;
-  let fixture: ComponentFixture<ContactComponent>;
+describe('BgLightRimComponent', () => {
+  let component: BgLightRimComponent;
+  let fixture: ComponentFixture<BgLightRimComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ContactComponent]
+      declarations: [BgLightRimComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ContactComponent);
+    fixture = TestBed.createComponent(BgLightRimComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
