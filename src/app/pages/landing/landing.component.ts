@@ -22,7 +22,7 @@ import Lenis from 'lenis';
   styleUrl: './landing.component.scss',
 })
 export class LandingComponent implements AfterViewInit {
-  model: string = 'assets/images/portfolio_sunil.png';
+  model: string = 'assets/images/portfolio_sunil.webp';
   smoothScrollingConfigured: boolean = false;
   currentPreview!:string
   playFooterAnimation:boolean = false
@@ -599,30 +599,16 @@ export class LandingComponent implements AfterViewInit {
 
    previewHover(platform:string){
     if (platform === "facebook") {
-      this.currentPreview = "assets/images/facebook preview.png"
+      this.currentPreview = "assets/images/social-media-preview/facebook preview.webp"
     }
     else if (platform === "medium") {
-      this.currentPreview = "assets/images/medium preview.png"
+      this.currentPreview = "assets/images/social-media-preview/medium preview.webp"
     }
     else if (platform === "linkedin") {
-      this.currentPreview = "assets/images/linkedin preview.png"
+      this.currentPreview = "assets/images/social-media-preview/linkedin preview.webp"
     }
     else if (platform === "x") {
-      this.currentPreview = "assets/images/twitter preview.png"
-    }
-
-
-    if (platform === "facebook") {
-      this.currentPreview = "assets/images/social-media-preview/facebook preview.png.jpeg"
-    }
-    else if (platform === "medium") {
-      this.currentPreview = "assets/images/social-media-preview/medium preview.png.jpeg"
-    }
-    else if (platform === "linkedin") {
-      this.currentPreview = "assets/images/social-media-preview/linkedin preview.png.jpeg"
-    }
-    else if (platform === "x") {
-      this.currentPreview = "assets/images/social-media-preview/twitter preview.png.jpeg"
+      this.currentPreview = "assets/images/social-media-preview/twitter preview.webp"
     }
 
     this.renderer.setStyle(this.previewFrame.nativeElement,"transform","scale(1.2)")
