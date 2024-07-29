@@ -55,7 +55,7 @@ export class LandingComponent implements AfterViewInit {
   @ViewChildren('verticalLinesLayer')verticalLinesLayer!:QueryList<ElementRef>
 
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
+    // @Inject(PLATFORM_ID) private platformId: Object,
     private cdr: ChangeDetectorRef,
     private renderer: Renderer2,
     private router: Router
@@ -64,8 +64,8 @@ export class LandingComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      // this.initiateSmoothScrolling();
+    // if (isPlatformBrowser(this.platformId)) {
+      this.initiateSmoothScrolling();
 
       const section_lg = gsap.utils.toArray('.section-lg');
 
@@ -327,7 +327,7 @@ export class LandingComponent implements AfterViewInit {
         this.typeWriter();
       }, 3000);
       this.cdr.detectChanges();
-    }
+    // }
   }
 
  
@@ -358,7 +358,7 @@ export class LandingComponent implements AfterViewInit {
       ScrollTrigger.update();
     });
 
-    gsap.ticker.add((time) => {
+    gsap.ticker.add((time:any) => {
       lenis.raf(time * 1200);
     });
 
