@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,25 +10,21 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { NavbarComponent } from './helpers/navbar/navbar.component';
 import { SidenavComponent } from './helpers/sidenav/sidenav.component';
 import { FooterComponent } from './helpers/footer/footer.component';
-import { MaterialModule } from './custom-modules/material/material.module';
-import { LiquidSvgBackgroundComponent } from './animations/liquid-svg-background/liquid-svg-background.component';
+import { BgLightRimComponent } from './animations/bg-light-rim/bg-light-rim.component';
+import { MapComponent } from './helpers/map/map.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     SidenavComponent,
-    FooterComponent,
-    // LiquidSvgBackgroundComponent
+    // MapComponent,
+    // BgLightRimComponent,
+    // FooterComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MaterialModule
-  ],
-  providers: [
-    provideAnimationsAsync()
-  ],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule, GoogleMapsModule],
+  providers: [provideClientHydration(), provideAnimationsAsync()],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
