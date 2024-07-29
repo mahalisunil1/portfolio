@@ -352,19 +352,19 @@ export class LandingComponent implements AfterViewInit {
   }
 
   initiateSmoothScrolling() {
-    const lenis = new Lenis();
+    // const lenis = new Lenis();
 
-    lenis.on('scroll', (e: any) => {
-      ScrollTrigger.update();
-    });
+    // lenis.on('scroll', (e: any) => {
+    //   ScrollTrigger.update();
+    // });
 
-    gsap.ticker.add((time:any) => {
-      lenis.raf(time * 1200);
-    });
+    // gsap.ticker.add((time:any) => {
+    //   lenis.raf(time * 1200);
+    // });
 
-    gsap.ticker.lagSmoothing(0);
+    // gsap.ticker.lagSmoothing(0);
 
-    this.smoothScrollingConfigured = true;
+    // this.smoothScrollingConfigured = true;
   }
 
   secne1_lg() {
