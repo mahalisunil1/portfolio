@@ -615,7 +615,7 @@ export class LandingComponent implements AfterViewInit {
       this.renderer.setStyle(this.previewFrame.nativeElement,"transform","scale(1.2)")
       this.renderer.setStyle(this.previewFrame.nativeElement,"transition","0.2s linear")
       this.renderer.setStyle(this.previewFrame.nativeElement,"opacity","1")
-    }, 400);
+    }, 300);
    }
 
    previewLeave(platform:string){
