@@ -446,29 +446,59 @@ transition: 0.3s linear;
   animation: 0.5s linear 1;
     }
 }
-.socials-preview-layer{
+// .socials-preview-layer{
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     height: 100%;
+//     width: 27.5%;
+// }
+// .preview-frame{
+//     width: 80%;
+//     height: 60%;
+//     border-radius: 20px;
+//     overflow: hidden;
+//     position: relative;
+//     z-index: 20;
+//     opacity: 0;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     img{
+//         height: 100%;
+//         width: auto;
+//         border-radius: 20px;
+//     }
+// }
+.socials-preview-layer {
     position: absolute;
     top: 0;
     right: 0;
     height: 100%;
     width: 27.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.preview-frame{
+
+.preview-frame {
     width: 80%;
     height: 60%;
     border-radius: 20px;
     overflow: hidden;
     position: relative;
     z-index: 20;
-    opacity: 0;
+    opacity: 0;  // Start invisible
     display: flex;
     align-items: center;
     justify-content: center;
-    img{
-        height: 100%;
-        width: auto;
-        border-radius: 20px;
-    }
+    transition: opacity 0.5s ease-in-out;  // Smooth transition for opacity
+}
+
+.preview-frame img {
+    height: 100%;
+    width: auto;
+    border-radius: 20px;
 }
 
 @keyframes shake {
