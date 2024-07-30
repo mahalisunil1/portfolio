@@ -611,11 +611,11 @@ export class LandingComponent implements AfterViewInit {
       this.currentPreview = "assets/images/social-media-preview/twitter preview.webp"
     }
 
-    this.renderer.setStyle(this.previewFrame.nativeElement,"transform","scale(1.2)")
-    this.renderer.setStyle(this.previewFrame.nativeElement,"transition","0.2s linear")
     setTimeout(() => {
+      this.renderer.setStyle(this.previewFrame.nativeElement,"transform","scale(1.2)")
+      this.renderer.setStyle(this.previewFrame.nativeElement,"transition","0.2s linear")
       this.renderer.setStyle(this.previewFrame.nativeElement,"opacity","1")
-    }, 100);
+    }, 400);
    }
 
    previewLeave(platform:string){
