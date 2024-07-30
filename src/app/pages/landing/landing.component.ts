@@ -643,7 +643,7 @@ export class LandingComponent implements AfterViewInit {
     window.open('https://www.linkedin.com/in/sunil-mahali-6b04a3240/', '_blank');
   }
   else if(type === "x"){
-    window.open('https://medium.com/@sunil.kumars360', '_blank');
+    window.open('https://x.com/dev_sunilmahali', '_blank');
   }
 
       }
