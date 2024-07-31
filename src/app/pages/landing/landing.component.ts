@@ -78,7 +78,7 @@ export class LandingComponent implements AfterViewInit {
             scrub: 2,
             snap:{
                snapTo:1 / (section_lg.length - 1),
-               duration:{min:0.6,max:0.6}
+               duration:{min:0.8,max:0.8}
             },
             pin: true,
           },
@@ -232,7 +232,7 @@ export class LandingComponent implements AfterViewInit {
             end:"bottom bottom", 
             snap:{
               snapTo:1,
-              duration:1,
+              duration:1.4,
               ease:"power1.inOut"
             }
           }
