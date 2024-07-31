@@ -192,7 +192,7 @@ export class LandingComponent implements AfterViewInit {
         .timeline({
           scrollTrigger: {
             trigger: '.extra-width',
-            start: 'left 80%',
+            start: 'left 40%',
             end: 'left left',
             containerAnimation: horizontalScrollAnimation,
             scrub: 3,
