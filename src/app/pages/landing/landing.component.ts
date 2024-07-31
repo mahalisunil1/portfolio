@@ -195,7 +195,7 @@ export class LandingComponent implements AfterViewInit {
             start: 'left 40%',
             end: 'left left',
             containerAnimation: horizontalScrollAnimation,
-            scrub: 3,
+            scrub: 1,
             markers:true
           },
         })
