@@ -78,7 +78,7 @@ export class LandingComponent implements AfterViewInit {
             scrub: 2,
             snap:{
                snapTo:1 / (section_lg.length - 1),
-               duration:{min:1,max:1}
+               duration:{min:0.7,max:0.7}
             },
             pin: true,
           },
