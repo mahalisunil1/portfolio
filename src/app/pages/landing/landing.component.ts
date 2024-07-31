@@ -196,6 +196,7 @@ export class LandingComponent implements AfterViewInit {
             end: 'left left',
             containerAnimation: horizontalScrollAnimation,
             scrub: 3,
+            markers:true
           },
         })
         .from('.about-text', {
