@@ -1,4 +1,4 @@
-<div class="hero-wrapper-lg" *ngIf="isLandscape">
+<div class="hero-wrapper-lg">
   <div class="fixed-layer-lg">
     <div class="bg-img-lg d-flex align-items-end justify-content-center">
       <img class="bg-img-lg-marker" [src]="model" alt="" />
@@ -897,58 +897,4 @@
       <app-footer [playFooterAnimation]="playFooterAnimation"></app-footer>
     </div>
   </section>
-</div>
-<div class="hero-wrapper-sm" *ngIf="!isLandscape">
-<div class="section-wrapper-one d-flex align-items-center justify-content-center">
-  <section class="hero-section-sm">
-   <div class="bg-text-layer-sm d-flex align-items-center justify-content-center">
-    <mat-icon>settings</mat-icon>
-    <h2 class="bg-text-stagger-sm letter-rotate">E</h2>
-    <h2 class="bg-text-stagger-sm">N</h2>
-    <h2 class="bg-text-stagger-sm">G</h2>
-    <h2 class="bg-text-stagger-sm">I</h2>
-    <h2 class="bg-text-stagger-sm">N</h2>
-    <h2 class="bg-text-stagger-sm">E</h2>
-    <h2 class="bg-text-stagger-sm">E</h2>
-    <h2 class="bg-text-stagger-sm">R</h2>
-    <h2 class="bg-text-stagger-sm">.</h2>
-   </div>
-   <div class="bg-img-layer-sm d-flex align-items-center justify-content-center">
-     <img [src]="model" alt="">
-     <div class="bg-img-reveal-layer-sm d-flex align-items-center justify-content-center flex-column">
-      <div class="img-reveal-stagger-sm img-reveal-stagger-left-sm"></div>
-      <div class="img-reveal-stagger-sm img-reveal-stagger-right-sm"></div>
-      <div class="img-reveal-stagger-sm img-reveal-stagger-left-sm"></div>
-      <div class="img-reveal-stagger-sm img-reveal-stagger-right-sm"></div>
-      <div class="img-reveal-stagger-sm img-reveal-stagger-left-sm"></div>
-      <div class="img-reveal-stagger-sm img-reveal-stagger-right-sm"></div>
-      <div class="img-reveal-stagger-sm img-reveal-stagger-left-sm"></div>
-      <div class="img-reveal-stagger-sm img-reveal-stagger-right-sm"></div>
-      <div class="img-reveal-stagger-sm img-reveal-stagger-left-sm"></div>
-      <div class="img-reveal-stagger-sm img-reveal-stagger-right-sm"></div>
-     </div>
-   </div>
-   <div class="hero-section-phrase-layer-sm d-flex align-items-center justify-content-center flex-column">
-    <div class="hero-phrase-stagger-sm">
-      <p><span>From</span> Concept To Deployment,</p>
-    </div>
-    <div class="hero-phrase-stagger-sm">
-      <p>Let's Build a Comprehensive</p>
-    </div>
-    <div class="hero-phrase-stagger-sm">
-      <p>Digital Experience <span>.</span></p>
-    </div>
-   </div>
-  </section>
-</div>
-<div class="section-wrapper-one d-flex align-items-center justify-content-center">
-  <section class="about-section-sm">
-    <div class="about-section-bg-animation-sm">
-      <app-bg-light-rim></app-bg-light-rim>
-    </div>
-  </section>
-</div>
-<div class="section-wrapper-one d-flex align-items-center justify-content-center">
-  <section class="contact-section-sm"></section>
-</div>
 </div>
