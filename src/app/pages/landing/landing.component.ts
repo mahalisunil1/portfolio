@@ -4,6 +4,7 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
+  HostListener,
   Inject,
   PLATFORM_ID,
   QueryList,
@@ -54,6 +55,22 @@ export class LandingComponent implements AfterViewInit {
   @ViewChild('skillTitle') skillTitle!: ElementRef;
   @ViewChildren('verticalLinesLayer')verticalLinesLayer!:QueryList<ElementRef>
 
+  isLandscape: boolean = window.innerWidth > window.innerHeight;
+  // Store the initial orientation
+  lastOrientationIsLandscape: boolean = window.innerWidth > window.innerHeight;
+  @HostListener('window:resize', ['$event'])
+  onResize(event:any) {
+    // Check current orientation
+    const currentOrientationIsLandscape = window.innerWidth > window.innerHeight;
+    // Check if orientation has changed
+    if (currentOrientationIsLandscape !== this.lastOrientationIsLandscape) {
+      // Update the last orientation to current
+      this.lastOrientationIsLandscape = currentOrientationIsLandscape;
+      // Reload the page if the orientation has changed
+      window.location.reload();
+      this.cdr.detectChanges()
+    }
+  }
   constructor(
     // @Inject(PLATFORM_ID) private platformId: Object,
     private cdr: ChangeDetectorRef,
@@ -64,9 +81,8 @@ export class LandingComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // if (isPlatformBrowser(this.platformId)) {
-      this.initiateSmoothScrolling();
-
+      // this.initiateSmoothScrolling();
+if (this.isLandscape) {
       const section_lg = gsap.utils.toArray('.section-lg');
 
       const horizontalScrollAnimation = gsap
@@ -74,12 +90,12 @@ export class LandingComponent implements AfterViewInit {
           scrollTrigger: {
             trigger: '.scrollX',
             start: 'top top',
-            end: this.scrollX.nativeElement.offsetWidth - 100,
-            scrub: 2,
             snap:{
                snapTo:1 / (section_lg.length - 1),
-               duration:{min:0.8,max:0.8}
+          duration:1.5
             },
+        end: this.scrollX.nativeElement.offsetWidth - 100,
+        scrub: 2,
             pin: true,
           },
         })
@@ -155,25 +171,11 @@ export class LandingComponent implements AfterViewInit {
             duration: 25,
             stagger: 2,
           },
-          '-=3.7'
-        )
-        .to('.fixed-layer-lg', {
-          background: 'rgba(0,0,0,0.1)',
-        })
-        .to(
-          '.fixed-layer-lg',
-          {
-            background: 'transparent',
-            zIndex: 3,
-            width: '95vw',
-          },
-          // '+=1'
+      '-=4'
         )
         .to('.about-lg', {
-          zIndex: 2,
-        }).to(".extra-width",{
-          background:"#000"
-        })
+      zIndex: 1,
+    },"-=2")
 
       gsap.to('.scroll-indication-container-lg div', {
         stagger: 0.2,
@@ -192,36 +194,40 @@ export class LandingComponent implements AfterViewInit {
         .timeline({
           scrollTrigger: {
             trigger: '.extra-width',
-            start: 'left 40%',
+        start: 'left 60%',
             end: 'left left',
             containerAnimation: horizontalScrollAnimation,
-            scrub: 1,
+        scrub: 2,
           },
         })
         .from('.about-text', {
           y: '-50vh',
           ease: 'power3.out',
-        })
+      duration:10
+    },"+=4")
         .from('.services-header-lg', {
           x: '-50vh',
         })
         .to('.services-item-lg', {
           opacity: 1,
           transform: 'scale(1)',
-          stagger: 0.2,
+      stagger: 1,
           ease: 'power3.out',
+      duration:10
         })
         .from('.line-lg', {
           height: 0,
           opacity: 0,
           ease: 'power3.out',
-        })
+      duration:10
+    },"-=3")
         .from('.skill-icon', {
           stagger: 0.1,
           opacity: 0,
           ease: 'power3.out',
           x: '8vw',
-        });
+      duration:10
+    },"-=2");
         
 
         gsap.timeline({
@@ -232,7 +238,7 @@ export class LandingComponent implements AfterViewInit {
             end:"bottom bottom", 
             snap:{
               snapTo:1,
-              duration:1.4,
+          duration:1.5,
               ease:"power1.inOut"
             }
           }
@@ -330,7 +336,102 @@ export class LandingComponent implements AfterViewInit {
         this.typeWriter();
       }, 3000);
       this.cdr.detectChanges();
-    // }
+}else{
+  // const sectionsSm = gsap.utils.toArray(".section-wrapper-one")
+  gsap.timeline({
+    scrollTrigger:{
+      trigger:".about-section-sm",
+      pin:true,
+      scrub:1,
+      snap:{
+        snapTo:1,
+        duration:1
+      },
+      start:"top top",
+      end:"bottom top"
+    }
+  }).to(".about-section-sm",{
+    transform:"scale(0.5)",
+    borderRadius:"25px",
+  opacity:0
+  }).to(".contact-section-sm",{
+    yPercent:0,
+  },"-=0.5")
+gsap.timeline({
+  scrollTrigger:{
+    trigger:".hero-section-sm",
+    pin:true,
+    scrub:1,
+    snap:{
+      snapTo:1,
+      duration:1
+    },
+    start:"top top",
+    end:"bottom top"
+  }
+}).to(".hero-section-sm",{
+  transform:"scale(0.5)",
+  borderRadius:"25px",
+  opacity:0
+}).to(".about-section-sm",{
+  yPercent:0,
+},"-=0.5")
+gsap.timeline().from(".hero-phrase-stagger-sm p",{
+  stagger:0.1,
+  opacity:0,
+  y:100,
+  duration:1.5
+})
+.to(".img-reveal-stagger-sm",{
+  background:"#1b1b1b"
+})
+.to(".hero-section-phrase-layer-sm",{
+  y:"27%",
+  delay:0.7
+})
+.to(".img-reveal-stagger-left-sm",{
+  stagger:0.1,
+  x:"-100vw",
+},"-=0.5")
+.to(".img-reveal-stagger-right-sm",{
+  stagger:0.1,
+  x:"100vw"
+},"-=1")
+.from(".bg-img-layer-sm img",{
+  opacity:0
+},"-=1")
+.from(".bg-text-stagger-sm",{
+  height:0,
+  opacity:0,
+  stagger:0.1,
+  y:50
+},"-=0.7")
+.to(".hero-phrase-stagger-sm p span",{
+  color:"#f87c38"
+})
+.from(".bg-text-layer-sm mat-icon",{
+  y:"-50vh",
+  opacity:0,
+},"-=1")
+.to(".bg-text-layer-sm mat-icon",{
+  x:"-62.5vw",
+  duration:1,
+  rotate:-360
+})
+.to(".bg-text-layer-sm mat-icon",{
+  color:"#f87c38"
+},"-=0.6")
+.to(".letter-rotate",{
+  rotate:360,
+},"-=0.5")
+.to(".bg-text-layer-sm mat-icon",{
+  rotation:"+=360",
+  repeat:-1,
+  ease:"none",
+  duration:3,
+  color:"#f87c38"
+})
+}
   }
 
  
