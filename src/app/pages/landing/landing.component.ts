@@ -76,18 +76,22 @@ mobileLastOrientation:boolean = window.innerWidth < window.innerHeight
       this.cdr.detectChanges()
     }
 
-    const currentOrientationMobile = window.innerWidth < window.innerHeight
-
-    if (currentOrientationMobile !== this.mobileLastOrientation) {
-      // Update the last orientation to current
-      // Reload the page if the orientation has changed
-      // window.location.reload();
-      if (window.innerWidth < 578) {
-        this.mobileLastOrientation = currentOrientationMobile;
-        console.log("orientation working")
-      }
-      this.cdr.detectChanges()
+    if (window.innerWidth < 576) {
+      console.log("test is working")
     }
+
+    // const currentOrientationMobile = window.innerWidth < window.innerHeight
+
+    // if (currentOrientationMobile !== this.mobileLastOrientation) {
+    //   // Update the last orientation to current
+    //   // Reload the page if the orientation has changed
+    //   // window.location.reload();
+    //   if (window.innerWidth < 576) {
+    //     this.mobileLastOrientation = currentOrientationMobile;
+    //     console.log("orientation working")
+    //   }
+    //   this.cdr.detectChanges()
+    // }
 
 
   }
