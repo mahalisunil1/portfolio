@@ -76,11 +76,11 @@ orientation: string = 'portrait';
       // Update the last orientation to current
       this.lastOrientationIsLandscape = currentOrientationIsLandscape;
       // Reload the page if the orientation has changed
+      this.checkOrientation()
 
       // window.location.reload();
       this.cdr.detectChanges()
     }
-    this.checkOrientation()
 
   }
 
