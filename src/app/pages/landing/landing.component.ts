@@ -45,8 +45,8 @@ export class LandingComponent implements AfterViewInit {
   typeWriterTimeOut!: number;
   eHeader: string = '';
   eParagraph: string = '';
-  isMobileTilted:boolean = window.innerWidth < window.innerHeight
-mobileLastOrientation:boolean = window.innerWidth < window.innerHeight
+  isMobileTilted:boolean = window.innerWidth > window.innerHeight
+mobileLastOrientation:boolean = window.innerWidth > window.innerHeight
 
   @ViewChild('scrollX') scrollX!: ElementRef;
   @ViewChild('phone')phone!:ElementRef;
@@ -78,7 +78,7 @@ mobileLastOrientation:boolean = window.innerWidth < window.innerHeight
 
     if (window.innerWidth < 576) {
       // console.log("test is working")
-      const currentOrientationMobile = window.innerWidth < window.innerHeight
+      const currentOrientationMobile = window.innerWidth > window.innerHeight
   
       if (currentOrientationMobile !== this.mobileLastOrientation) {
         // Update the last orientation to current
