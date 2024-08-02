@@ -112,7 +112,7 @@ if (this.isLandscape) {
             start: 'right right',
             end: 'right 80%',
             containerAnimation: horizontalScrollAnimation,
-            invalidateOnRefresh: true,
+        invalidateOnRefresh: true
           },
         })
         .to(
@@ -345,16 +345,20 @@ if (this.isLandscape) {
       scrub:1,
       snap:{
         snapTo:1,
-        duration:1
+        // duration:1
       },
       start:"top top",
       end:"bottom top"
     }
   }).to(".about-section-sm",{
     transform:"scale(0.5)",
-    borderRadius:"25px",
+    borderRadius:"30px",
   opacity:0
-  }).to(".contact-section-sm",{
+  })
+  .to(".about-section-sm",{
+    yPercent:0,
+  },"-=0.5")
+  .to(".contact-section-sm",{
     yPercent:0,
   },"-=0.5")
 gsap.timeline({
@@ -364,18 +368,24 @@ gsap.timeline({
     scrub:1,
     snap:{
       snapTo:1,
-      duration:1
+      // duration:1
     },
     start:"top top",
     end:"bottom top"
   }
 }).to(".hero-section-sm",{
   transform:"scale(0.5)",
-  borderRadius:"25px",
+  borderRadius:"30px",
   opacity:0
-}).to(".about-section-sm",{
-  yPercent:0,
-},"-=0.5")
+})
+.from(".about-header-wrapper span",{
+  width:0
+}).from(".about-header-wrapper h3",{
+  y:"6vh",
+  stagger:0.1,
+// ease:"elastic.in",
+opacity:0
+})
 gsap.timeline().from(".hero-phrase-stagger-sm p",{
   stagger:0.1,
   opacity:0,
@@ -407,7 +417,7 @@ gsap.timeline().from(".hero-phrase-stagger-sm p",{
   y:50
 },"-=0.7")
 .to(".hero-phrase-stagger-sm p span",{
-  color:"#f87c38"
+  color:"#ec7f37"
 })
 .from(".bg-text-layer-sm mat-icon",{
   y:"-50vh",
@@ -419,7 +429,7 @@ gsap.timeline().from(".hero-phrase-stagger-sm p",{
   rotate:-360
 })
 .to(".bg-text-layer-sm mat-icon",{
-  color:"#f87c38"
+  color:"#ec7f37"
 },"-=0.6")
 .to(".letter-rotate",{
   rotate:360,
@@ -429,7 +439,7 @@ gsap.timeline().from(".hero-phrase-stagger-sm p",{
   repeat:-1,
   ease:"none",
   duration:3,
-  color:"#f87c38"
+  color:"#ec7f37"
 })
 }
   }

@@ -9,7 +9,7 @@
     background: #000;
 }
 .hero-wrapper-sm{
-    background: #181818;
+    background: #080808;
 }
 .section-wrapper-one{
     width: 100vw;
@@ -34,7 +34,87 @@ z-index: 2;
     top: 0;
     width: 100%;
     height: 100%;
+    background: linear-gradient(-45deg, #000800, #011b0b, #060120, #000000);
+    background-size: 400% 400%;
+    position: relative;
+    animation: change 15s ease-in-out infinite; 
+    z-index: 1;
 }
+.about-section-content-sm{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    // background: red;
+    z-index: 2;
+}
+.about-header-wrapper{
+    width: 100%;
+    height: 20%;
+    gap: 0.7vw;
+    position: relative;
+overflow: hidden;
+    h3{
+        margin: 0;
+        padding: 0;
+        position: relative;
+        top: 25%;
+        left: 25%;
+        color: #c2c2c2;
+        font-family: "Bangers",system-ui;
+    }
+    span{
+        width: 75%;
+        height: 0.3vh;
+        background: #fc792d;
+        border-radius: 7px;
+        position: absolute;
+         bottom: 0;
+         left: 15%;
+    }
+    // border: 2px solid red;
+}
+@keyframes change {
+  0%{
+    background-position: 0 50%;
+  }
+   50%{
+    background-position: 100% 50%;
+  }
+    100%{
+    background-position: 0 50%;
+  }
+}
+// .about-section-bg-animation-sm::before{
+//     content: '';
+//   position: absolute;
+//   width: 100%;
+//   height: 100%;
+//   transform-origin: 50% 50%;
+//   background: linear-gradient(to bottom, #061741, #061741, #061741, #000, #042f04, #0d530b, #000);
+//   background-size: 100% 100%;
+//   animation: gradient-rotate 45s ease-in-out infinite;
+// }
+@keyframes gradient-rotate {
+    0% {
+      transform: scale(5) rotate(0deg);
+      background-position: 0 0;
+    }
+    25% {
+      transform: scale(10) rotate(90deg);
+    }
+    50% {
+      transform: scale(5) rotate(180deg);
+      background-position: 100% 100%;
+    }
+    75% {
+      transform: scale(10) rotate(270deg);
+    }
+    100% {
+      transform: scale(5) rotate(360deg);
+      background-position: 0 0;
+    }
+  }
 .contact-section-sm{
 width: 100%;
 height: 100%;
@@ -745,7 +825,7 @@ h2{
         position: absolute;
         top: 35.5%;
         right: 20%;
-        transform: scale(2.5);
+        transform: scale(2);
         color: #eee;
     }
     h2{
@@ -807,13 +887,13 @@ h2{
 .hero-section-phrase-layer-sm{
     div{
         p{
-            font-size: 7.5vw;
+            font-size: 6.5vw;
         }
     }
 }
 .bg-text-layer-sm{
     mat-icon{
-        transform: scale(1.7);
+        transform: scale(1.5);
     }
 }
 }
