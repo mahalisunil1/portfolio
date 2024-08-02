@@ -46,7 +46,7 @@ export class LandingComponent implements AfterViewInit {
   eHeader: string = '';
   eParagraph: string = '';
   isLandscapeMobile:boolean = false
-  // isMobileTilted:boolean = window.innerWidth < window.innerHeight
+  isMobileTilted:boolean = false
 // mobileLastOrientation:boolean = window.innerWidth > window.innerHeight
 
 
@@ -90,8 +90,9 @@ orientation: string = 'portrait';
 
     if (width < 576) {
       if (width > height) {
-        this.orientation = 'landscape';
-        console.log('landscape');
+        // this.orientation = 'landscape';
+        // console.log('landscape');
+        this.isMobileTilted = true
       } else {
         this.orientation = 'portrait';
         console.log('portrait');
