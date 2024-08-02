@@ -8,9 +8,13 @@
     overflow-x: hidden;
     width: 100vw;
     // background: #000;
+    position: relative;
+    z-index: 1;
 }
 .hero-wrapper-sm{
     background: #080808;
+    position: relative;
+    z-index: 1;
 }
 .section-wrapper-one{
     width: 100vw;
@@ -965,6 +969,9 @@ border: 1px solid rgba(255,255,255,0.25);
 width: 100vw;
 height: 100vh;
 background: #000;
+position: absolute;
+z-index: 3;
+background: rgba(0,0,0,0.6);
 }
 
 @media only screen and (max-width:576px){
