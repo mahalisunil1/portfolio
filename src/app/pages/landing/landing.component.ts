@@ -45,7 +45,7 @@ export class LandingComponent implements AfterViewInit {
   typeWriterTimeOut!: number;
   eHeader: string = '';
   eParagraph: string = '';
-  isMobileTilted:boolean = window.innerWidth > window.innerHeight
+  isMobileTilted:boolean = window.innerWidth < window.innerHeight
 mobileLastOrientation:boolean = window.innerWidth > window.innerHeight
 
   @ViewChild('scrollX') scrollX!: ElementRef;
