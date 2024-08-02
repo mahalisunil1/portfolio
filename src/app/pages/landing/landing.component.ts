@@ -50,6 +50,8 @@ export class LandingComponent implements AfterViewInit {
 // mobileLastOrientation:boolean = window.innerWidth > window.innerHeight
 
 
+orientation: string = 'portrait';
+
   @ViewChild('scrollX') scrollX!: ElementRef;
   @ViewChild('phone')phone!:ElementRef;
   @ViewChild('previewFrame')previewFrame!:ElementRef;
@@ -75,12 +77,6 @@ export class LandingComponent implements AfterViewInit {
       this.lastOrientationIsLandscape = currentOrientationIsLandscape;
       // Reload the page if the orientation has changed
 
-      if (window.innerWidth < 576) {
-        console.log("orientation test")
-      }else{
-        console.log("tksahd  douopwqduwqo qwdjoqudqwd oudopwqd")
-      }
-
       window.location.reload();
       this.cdr.detectChanges()
     }
@@ -105,6 +101,20 @@ export class LandingComponent implements AfterViewInit {
 
   }
 
+  private checkOrientation(): void {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    if (width < 576) {
+      if (width > height) {
+        this.orientation = 'landscape';
+        console.log('landscape');
+      } else {
+        this.orientation = 'portrait';
+        console.log('portrait');
+      }
+    }
+  }
 
   constructor(
     // @Inject(PLATFORM_ID) private platformId: Object,
