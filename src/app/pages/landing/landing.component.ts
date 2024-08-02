@@ -77,7 +77,10 @@ export class LandingComponent implements AfterViewInit {
 
       if (window.innerWidth < 576) {
         console.log("orientation test")
+      }else{
+        console.log("tksahd  douopwqduwqo qwdjoqudqwd oudopwqd")
       }
+
       window.location.reload();
       this.cdr.detectChanges()
     }
