@@ -93,6 +93,7 @@ orientation: string = 'portrait';
         // this.orientation = 'landscape';
         // console.log('landscape');
         this.isMobileTilted = true
+        console.log(this.isMobileTilted)
         this.cdr.detectChanges()
       } else {
         this.orientation = 'portrait';
