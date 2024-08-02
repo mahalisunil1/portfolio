@@ -88,13 +88,20 @@ orientation: string = 'portrait';
     const width = window.innerWidth;
     const height = window.innerHeight;
 
+    // Debugging output
+    console.log(`Width: ${width}, Height: ${height}`);
+
     if (width < 576) {
       if (width > height) {
-        this.orientation = 'landscape';
-        console.log('landscape');
+        if (this.orientation !== 'landscape') {
+          this.orientation = 'landscape';
+          console.log('Changed to landscape');
+        }
       } else {
-        this.orientation = 'portrait';
-        console.log('portrait');
+        if (this.orientation !== 'portrait') {
+          this.orientation = 'portrait';
+          console.log('Changed to portrait');
+        }
       }
     }
   }
@@ -106,6 +113,7 @@ orientation: string = 'portrait';
     private router: Router
   ) {
     gsap.registerPlugin(ScrollTrigger);
+    this.checkOrientation()
   }
 
   ngAfterViewInit(): void {
