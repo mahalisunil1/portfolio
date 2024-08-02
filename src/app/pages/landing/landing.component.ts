@@ -78,6 +78,7 @@ orientation: string = 'portrait';
       // Reload the page if the orientation has changed
 
       window.location.reload();
+      this.checkOrientation()
       this.cdr.detectChanges()
     }
 
