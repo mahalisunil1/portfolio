@@ -1,12 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Saira+Stencil+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bangers&family=Saira+Stencil+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bangers&family=Mouse+Memoirs&family=Saira+Stencil+One&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Saira+Stencil+One&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bangers&family=Saira+Stencil+One&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bangers&family=Mouse+Memoirs&family=Saira+Stencil+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bangers&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mouse+Memoirs&family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&display=swap');
 
 .hero-wrapper-lg{
     overflow-x: hidden;
     width: 100vw;
-    background: #000;
+    // background: #000;
 }
 .hero-wrapper-sm{
     background: #080808;
@@ -64,13 +65,14 @@ overflow: hidden;
         font-family: "Bangers",system-ui;
     }
     span{
-        width: 75%;
+        width: 85%;
         height: 0.3vh;
-        background: #f19239;
+        background: #fc792d;
         border-radius: 7px;
         position: absolute;
          bottom: 0;
-         left: 15%;
+         left: 50%;
+         transform: translateX(-50%);
     }
     // border: 2px solid red;
 }
@@ -84,6 +86,21 @@ overflow: hidden;
     100%{
     background-position: 0 50%;
   }
+}
+.about-description-sm{
+    width: 100%;
+    height: 40%;
+    text-align: left;
+    p{
+        position: relative;
+        top: 10%;
+        width: 80%;
+        margin: auto;
+        font-size: 2.5vw;
+        line-height: 5vw;
+        color: #eee;
+        font-family: "Inter", sans-serif;
+    }
 }
 // .about-section-bg-animation-sm::before{
 //     content: '';
@@ -126,7 +143,8 @@ z-index: 2;
     width: 200vw;
     height: 100vh;
     position: relative;
-    z-index: 1;
+    z-index: 0;
+    background: #000;
 }
 .fixed-layer-lg{
     position: fixed;
@@ -134,7 +152,9 @@ z-index: 2;
     height: 100vh;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 3 !important;
+    pointer-events: none;
+    // border: 3rem solid black;
     // background: #000;
 }
 
@@ -362,13 +382,12 @@ h1{
     height: 100%;
     position: absolute;
     top: 0;
-    z-index: 2;
 }
 .about-layer2-lg{
     height: 100%;
     width: 67%;
     position: relative;
-    z-index: 3;
+    // z-index: 3;
 }
 .about-text-container{
     width:75%;
@@ -771,6 +790,7 @@ margin: auto;
         width: 55%;
         height: auto;
     }
+    // pointer-events: none;
 }
 .skill-svg-container{
     position: relative;
@@ -883,6 +903,62 @@ h2{
         }
     }
 }
+.about-services-sm{
+width: 100%;
+height: 30%;
+position: relative;
+// top: 5%;
+}
+.services-header-wrapper-sm{
+    width: 85%;
+    height: 25%;
+    margin: auto;
+    position: relative;
+    h3{
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-25%);
+        left: 5%;
+        font-size: 2.6vw;
+        color: #d6d6d6;
+        font-family: "Bangers",system-ui;
+        letter-spacing: 0.3vw;
+    }
+    overflow: hidden;
+}
+.services-wrapper-sm{
+ width: 80%;
+ margin: auto;
+ height: 75%;
+}
+.services-row-sm{
+    display: none;
+}
+.service-item-sm{
+    height: 70%;
+    width: fit-content;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 1vw 4vw;
+    background: rgba(255,255,255,0.2);
+-webkit-backdrop-filter: blur(10px);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255,255,255,0.25);
+    img{
+        height: 70%;
+        width: auto;
+    }
+    p{
+        margin: 0;
+        padding: 0;
+        font-family: "Inter",sans-serif;
+        font-weight: 800;
+        color: #d6d6d6;
+        font-size: 3vw;
+    }
+}
 @media only screen and (max-width:576px){
 .hero-section-phrase-layer-sm{
     div{
@@ -895,6 +971,29 @@ h2{
     mat-icon{
         transform: scale(1.5);
     }
+}
+.about-description-sm{
+    p{
+        font-size: 3.2vw;
+        line-height: 6vw;
+    }
+}
+.services-header-wrapper-sm{
+    h3{
+        font-size: 4.5vw;
+        transform: translateY(-25%);
+    }
+}
+.about-services-sm{
+    height: 25%;
+    top: 5%;
+}
+.services-row-sm{
+    display: block;
+    width: 100%;
+    height: 40%;
+    position: relative;
+    top: 10%;
 }
 }
   @media only screen and (min-width:912px) and (max-width:1279px){
@@ -1018,6 +1117,7 @@ p{
     }
     .about-layer2-lg{
         width: 62%;
+        // background-color: red;
     }
     .skill-title{
         font-size: 0.4rem;

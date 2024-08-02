@@ -24,6 +24,9 @@ import Lenis from 'lenis';
 })
 export class LandingComponent implements AfterViewInit {
   model: string = 'assets/images/portfolio_sunil.webp';
+  SeoServices:string = "assets/images/services icons/statistics.png"
+  AppDevelopmentServices:string = "assets/images/services icons/developer.png"
+  WebDevelopmentServices:string = "assets/images/services icons/coding (1).png"
   smoothScrollingConfigured: boolean = false;
   currentPreview!:string
   playFooterAnimation:boolean = false
@@ -174,7 +177,7 @@ if (this.isLandscape) {
       '-=4'
         )
         .to('.about-lg', {
-      zIndex: 1,
+      zIndex: 2,
     },"-=2")
 
       gsap.to('.scroll-indication-container-lg div', {
@@ -345,7 +348,7 @@ if (this.isLandscape) {
       scrub:1,
       snap:{
         snapTo:1,
-        // duration:1
+        duration:1.2
       },
       start:"top top",
       end:"bottom top"
@@ -368,7 +371,7 @@ gsap.timeline({
     scrub:1,
     snap:{
       snapTo:1,
-      // duration:1
+      duration:1.2
     },
     start:"top top",
     end:"bottom top"
@@ -376,15 +379,33 @@ gsap.timeline({
 }).to(".hero-section-sm",{
   transform:"scale(0.5)",
   borderRadius:"30px",
-  opacity:0
+  opacity:0,
+  duration:10
 })
 .from(".about-header-wrapper span",{
-  width:0
+  width:0,
+  duration:7
 }).from(".about-header-wrapper h3",{
   y:"6vh",
   stagger:0.1,
-// ease:"elastic.in",
-opacity:0
+opacity:0,
+duration:7
+})
+.from(".about-description-sm p",{
+  opacity:0,
+  y:75,
+  duration:5
+})
+.from(".services-header-wrapper-sm h3",{
+  x:"-25vw",
+  opacity:0,
+  duration:8
+})
+.from(".service-item-sm",{
+  stagger:0.3,
+  transform:"scale(0.5)",
+  opacity:0,
+  duration:8
 })
 gsap.timeline().from(".hero-phrase-stagger-sm p",{
   stagger:0.1,
