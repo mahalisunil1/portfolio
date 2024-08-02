@@ -67,6 +67,17 @@ orientation: string = 'portrait';
   // Store the initial orientation
   lastOrientationIsLandscape: boolean = window.innerWidth > window.innerHeight;
 
+
+  constructor(
+    // @Inject(PLATFORM_ID) private platformId: Object,
+    private cdr: ChangeDetectorRef,
+    private renderer: Renderer2,
+    private router: Router
+  ) {
+    gsap.registerPlugin(ScrollTrigger);
+    this.checkOrientation()
+  }
+  
   @HostListener('window:resize', ['$event'])
   onResize(event:any) {
     this.checkOrientation()
@@ -106,15 +117,6 @@ orientation: string = 'portrait';
     }
   }
 
-  constructor(
-    // @Inject(PLATFORM_ID) private platformId: Object,
-    private cdr: ChangeDetectorRef,
-    private renderer: Renderer2,
-    private router: Router
-  ) {
-    gsap.registerPlugin(ScrollTrigger);
-    this.checkOrientation()
-  }
 
   ngAfterViewInit(): void {
       // this.initiateSmoothScrolling();
