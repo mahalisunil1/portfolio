@@ -45,7 +45,8 @@ export class LandingComponent implements AfterViewInit {
   typeWriterTimeOut!: number;
   eHeader: string = '';
   eParagraph: string = '';
-
+  isMobileTilted:boolean = window.innerWidth < window.innerHeight
+mobileLastOrientation:boolean = window.innerWidth < window.innerHeight
 
   @ViewChild('scrollX') scrollX!: ElementRef;
   @ViewChild('phone')phone!:ElementRef;
@@ -61,6 +62,7 @@ export class LandingComponent implements AfterViewInit {
   isLandscape: boolean = window.innerWidth > window.innerHeight;
   // Store the initial orientation
   lastOrientationIsLandscape: boolean = window.innerWidth > window.innerHeight;
+
   @HostListener('window:resize', ['$event'])
   onResize(event:any) {
     // Check current orientation
@@ -73,7 +75,24 @@ export class LandingComponent implements AfterViewInit {
       window.location.reload();
       this.cdr.detectChanges()
     }
+
+    const currentOrientationMobile = window.innerWidth < window.innerHeight
+
+    if (currentOrientationMobile !== this.mobileLastOrientation) {
+      // Update the last orientation to current
+      // Reload the page if the orientation has changed
+      // window.location.reload();
+      if (window.innerWidth < 578) {
+        this.mobileLastOrientation = currentOrientationMobile;
+        console.log("orientation working")
+      }
+      this.cdr.detectChanges()
+    }
+
+
   }
+
+
   constructor(
     // @Inject(PLATFORM_ID) private platformId: Object,
     private cdr: ChangeDetectorRef,
