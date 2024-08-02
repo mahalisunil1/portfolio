@@ -90,11 +90,11 @@ orientation: string = 'portrait';
 
     if (width < 576) {
       if (width > height) {
-        // this.orientation = 'landscape';
-        // console.log('landscape');
-        this.isMobileTilted = true
-        console.log(this.isMobileTilted)
-        this.cdr.detectChanges()
+        this.orientation = 'landscape';
+        console.log('landscape');
+        // this.isMobileTilted = true
+        // console.log(this.isMobileTilted)
+        // this.cdr.detectChanges()
       } else {
         this.orientation = 'portrait';
         console.log('portrait');
