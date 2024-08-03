@@ -64,7 +64,7 @@ orientation: string = 'portrait';
   isLandscape: boolean = window.innerWidth > window.innerHeight;
   // Store the initial orientation
   lastOrientationIsLandscape: boolean = window.innerWidth > window.innerHeight;
-
+  lastOrientation: 'portrait' | 'landscape';
 
   constructor(
     // @Inject(PLATFORM_ID) private platformId: Object,
@@ -72,12 +72,14 @@ orientation: string = 'portrait';
     private renderer: Renderer2,
     private router: Router
   ) {
+    this.lastOrientation = this.getCurrentOrientation();
     gsap.registerPlugin(ScrollTrigger);
     // this.setInitialOrientation();
   }
-
+  
   @HostListener('window:resize', ['$event'])
   onResize(event:any) {
+    this.logOrientationChange();
     // this.checkOrientation()
     // this.logOrientationChange();
     // Check current orientation
@@ -87,46 +89,28 @@ orientation: string = 'portrait';
       // Update the last orientation to current
       this.lastOrientationIsLandscape = currentOrientationIsLandscape;
       // Reload the page if the orientation has changed
-      window.location.reload();
+      // window.location.reload();
       this.cdr.detectChanges()
     }
 
   }
 
-  // private setInitialOrientation(): void {
-  //   this.lastOrientation = this.getCurrentOrientation();
-  // }
+  private getCurrentOrientation(): 'portrait' | 'landscape' {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    return width > height ? 'landscape' : 'portrait';
+  }
 
-  // private getCurrentOrientation(): 'portrait' | 'landscape' {
-  //   const width = window.innerWidth;
-  //   const height = window.innerHeight;
-  //   return width > height ? 'landscape' : 'portrait';
-  // }
-
-  // private logOrientationChange(): void {
-  //   if (window.innerWidth < 576) {
-  //     const currentOrientation = this.getCurrentOrientation();
-  //     if (currentOrientation !== this.lastOrientation) {
-  //       console.log(`Orientation changed to ${currentOrientation}`);
-  //       this.lastOrientation = currentOrientation;
-  //     }
-  //   }
-  // }
-
-  // private checkOrientation(): void {
-
-  //   if (window.innerWidth < 576) {
-  //     console.log(window.innerHeight,window.innerWidth)
-
-  //     if (window.innerWidth < window.innerHeight) {
-  //       console.log("portrait")
-  //     } else {
-  //       console.log("Landscape")
-  //     }
-  //   }
-  // }
-
-
+  private logOrientationChange(): void {
+    if (window.innerWidth < 576) {
+      const currentOrientation = this.getCurrentOrientation();
+      if (currentOrientation !== this.lastOrientation) {
+        console.log(`Orientation changed to ${currentOrientation}`);
+        this.lastOrientation = currentOrientation;
+      }
+    }
+  }
+  
   ngAfterViewInit(): void {
       // this.initiateSmoothScrolling();
 if (this.isLandscape) {
