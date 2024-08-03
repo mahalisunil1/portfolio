@@ -77,7 +77,7 @@ orientation: string = 'portrait';
     gsap.registerPlugin(ScrollTrigger);
     this.checkOrientation()
   }
-  
+
   @HostListener('window:resize', ['$event'])
   onResize(event:any) {
     this.checkOrientation()
@@ -104,15 +104,17 @@ orientation: string = 'portrait';
 
     if (width < 576) {
       if (width > height) {
-        if (this.orientation !== 'landscape') {
-          this.orientation = 'landscape';
-          console.log('Changed to landscape');
-        }
+        // if (this.orientation !== 'landscape') {
+        //   this.orientation = 'landscape';
+        //   console.log('Changed to landscape');
+        // }
+        console.log("landscape")
       } else {
-        if (this.orientation !== 'portrait') {
-          this.orientation = 'portrait';
-          console.log('Changed to portrait');
-        }
+        // if (this.orientation !== 'portrait') {
+        //   this.orientation = 'portrait';
+        //   console.log('Changed to portrait');
+        // }
+        console.log("portrait")
       }
     }
   }
