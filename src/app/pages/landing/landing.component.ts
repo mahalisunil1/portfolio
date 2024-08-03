@@ -75,7 +75,7 @@ orientation: string = 'portrait';
     private router: Router
   ) {
     gsap.registerPlugin(ScrollTrigger);
-    this.checkOrientation()
+    // this.checkOrientation()
   }
 
   @HostListener('window:resize', ['$event'])
@@ -96,20 +96,9 @@ orientation: string = 'portrait';
   }
 
   private checkOrientation(): void {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
 
-    // Debugging output
-    console.log(`Width: ${width}, Height: ${height}`);
-
-    if (width < 576) {
-      if (width > height) {
-        // if (this.orientation !== 'landscape') {
-        //   this.orientation = 'landscape';
-        //   console.log('Changed to landscape');
-        // }
-        console.log("landscape")
-      } 
+    if (window.innerWidth < 576) {
+       console.log(window.innerWidth)
     }
   }
 
