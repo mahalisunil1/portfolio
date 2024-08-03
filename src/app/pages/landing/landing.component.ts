@@ -80,7 +80,7 @@ orientation: string = 'portrait';
 
   @HostListener('window:resize', ['$event'])
   onResize(event:any) {
-    this.checkOrientation()
+    // this.checkOrientation()
     // Check current orientation
     const currentOrientationIsLandscape = window.innerWidth > window.innerHeight;
     // Check if orientation has changed
@@ -88,7 +88,7 @@ orientation: string = 'portrait';
       // Update the last orientation to current
       this.lastOrientationIsLandscape = currentOrientationIsLandscape;
       // Reload the page if the orientation has changed
-      // window.location.reload();
+      window.location.reload();
       this.cdr.detectChanges()
     }
 
