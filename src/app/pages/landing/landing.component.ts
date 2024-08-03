@@ -98,10 +98,10 @@ orientation: string = 'portrait';
 
     if (window.innerWidth < 576) {
 
-      if (window.innerWidth > window.innerHeight) {
-        console.log("Landscape")
+      if (window.innerWidth < window.innerHeight) {
+        console.log("portrait")
       } else {
-        console.log("Portrait")
+        console.log("Landscape")
       }
     }
   }
