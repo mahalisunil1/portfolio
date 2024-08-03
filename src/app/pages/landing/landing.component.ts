@@ -74,20 +74,21 @@ orientation: string = 'portrait';
   ) {
     this.lastOrientation = this.getCurrentOrientation();
     gsap.registerPlugin(ScrollTrigger);
-    // this.setInitialOrientation();
   }
   
   @HostListener('window:resize', ['$event'])
   onResize(event:any) {
-    // this.logOrientationChange();
+    this.logOrientationChange();
 
     const currentOrientationIsLandscape = window.innerWidth > window.innerHeight;
     // Check if orientation has changed
     if (currentOrientationIsLandscape !== this.lastOrientationIsLandscape) {
       // Update the last orientation to current
       this.lastOrientationIsLandscape = currentOrientationIsLandscape;
+
       // Reload the page if the orientation has changed
-      window.location.reload();
+      // console.log("landscape")
+      // window.location.reload();
       this.cdr.detectChanges()
     }
 
