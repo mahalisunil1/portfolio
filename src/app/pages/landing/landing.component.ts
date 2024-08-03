@@ -64,7 +64,6 @@ orientation: string = 'portrait';
   isLandscape: boolean = window.innerWidth > window.innerHeight;
   // Store the initial orientation
   lastOrientationIsLandscape: boolean = window.innerWidth > window.innerHeight;
-  lastOrientation: 'portrait' | 'landscape';
 
   constructor(
     // @Inject(PLATFORM_ID) private platformId: Object,
@@ -72,13 +71,11 @@ orientation: string = 'portrait';
     private renderer: Renderer2,
     private router: Router
   ) {
-    this.lastOrientation = this.getCurrentOrientation();
     gsap.registerPlugin(ScrollTrigger);
   }
   
   @HostListener('window:resize', ['$event'])
   onResize(event:any) {
-    this.logOrientationChange();
 
     const currentOrientationIsLandscape = window.innerWidth > window.innerHeight;
     // Check if orientation has changed
@@ -88,26 +85,10 @@ orientation: string = 'portrait';
 
       // Reload the page if the orientation has changed
       // console.log("landscape")
-      // window.location.reload();
+      window.location.reload();
       this.cdr.detectChanges()
     }
 
-  }
-
-  private getCurrentOrientation(): 'portrait' | 'landscape' {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    return width > height ? 'landscape' : 'portrait';
-  }
-
-  private logOrientationChange(): void {
-    if (window.innerWidth < 576) {
-      const currentOrientation = this.getCurrentOrientation();
-      if (currentOrientation !== this.lastOrientation) {
-        console.log(`Orientation changed to ${currentOrientation}`);
-        this.lastOrientation = currentOrientation;
-      }
-    }
   }
 
   ngAfterViewInit(): void {
