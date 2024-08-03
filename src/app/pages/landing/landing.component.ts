@@ -97,6 +97,7 @@ orientation: string = 'portrait';
   private checkOrientation(): void {
 
     if (window.innerWidth < 576) {
+      console.log(window.innerHeight,window.innerWidth)
 
       if (window.innerWidth < window.innerHeight) {
         console.log("portrait")
