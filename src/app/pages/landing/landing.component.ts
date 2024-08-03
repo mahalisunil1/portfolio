@@ -45,7 +45,7 @@ export class LandingComponent implements AfterViewInit {
   typeWriterTimeOut!: number;
   eHeader: string = '';
   eParagraph: string = '';
-  lastOrientation: 'portrait' | 'landscape';
+  lastOrientation: 'portrait' | 'landscape' = 'portrait';
 
 
 orientation: string = 'portrait';
