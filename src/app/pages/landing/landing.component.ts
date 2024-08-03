@@ -88,8 +88,7 @@ orientation: string = 'portrait';
       // Update the last orientation to current
       this.lastOrientationIsLandscape = currentOrientationIsLandscape;
       // Reload the page if the orientation has changed
-
-      window.location.reload();
+      // window.location.reload();
       this.cdr.detectChanges()
     }
 
@@ -98,7 +97,10 @@ orientation: string = 'portrait';
   private checkOrientation(): void {
 
     if (window.innerWidth < 576) {
-       console.log(window.innerWidth)
+
+      let test = window.innerWidth < window.innerHeight
+
+       console.log(test)
     }
   }
 
