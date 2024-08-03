@@ -110,7 +110,7 @@ orientation: string = 'portrait';
       }
     }
   }
-  
+
   ngAfterViewInit(): void {
       // this.initiateSmoothScrolling();
 if (this.isLandscape) {
