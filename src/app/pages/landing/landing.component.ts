@@ -109,13 +109,7 @@ orientation: string = 'portrait';
         //   console.log('Changed to landscape');
         // }
         console.log("landscape")
-      } else {
-        // if (this.orientation !== 'portrait') {
-        //   this.orientation = 'portrait';
-        //   console.log('Changed to portrait');
-        // }
-        console.log("portrait")
-      }
+      } 
     }
   }
 
