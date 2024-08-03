@@ -45,9 +45,7 @@ export class LandingComponent implements AfterViewInit {
   typeWriterTimeOut!: number;
   eHeader: string = '';
   eParagraph: string = '';
-  isLandscapeMobile:boolean = false
-  isMobileTilted:boolean = false
-// mobileLastOrientation:boolean = window.innerWidth > window.innerHeight
+  lastOrientation: 'portrait' | 'landscape';
 
 
 orientation: string = 'portrait';
@@ -75,12 +73,13 @@ orientation: string = 'portrait';
     private router: Router
   ) {
     gsap.registerPlugin(ScrollTrigger);
-    this.checkOrientation()
+    this.setInitialOrientation();
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event:any) {
     // this.checkOrientation()
+    this.logOrientationChange();
     // Check current orientation
     const currentOrientationIsLandscape = window.innerWidth > window.innerHeight;
     // Check if orientation has changed
@@ -92,6 +91,26 @@ orientation: string = 'portrait';
       this.cdr.detectChanges()
     }
 
+  }
+
+  private setInitialOrientation(): void {
+    this.lastOrientation = this.getCurrentOrientation();
+  }
+
+  private getCurrentOrientation(): 'portrait' | 'landscape' {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    return width > height ? 'landscape' : 'portrait';
+  }
+
+  private logOrientationChange(): void {
+    if (window.innerWidth < 576) {
+      const currentOrientation = this.getCurrentOrientation();
+      if (currentOrientation !== this.lastOrientation) {
+        console.log(`Orientation changed to ${currentOrientation}`);
+        this.lastOrientation = currentOrientation;
+      }
+    }
   }
 
   private checkOrientation(): void {
