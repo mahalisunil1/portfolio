@@ -119,7 +119,7 @@ orientation: string = 'portrait';
               console.log('Device type: Tablet');
             } else if (result.breakpoints[Breakpoints.XSmall]) {
               console.log('Device type: Handset');
-              window.location.reload()
+              // window.location.reload()
             }
             if (
               result.breakpoints[Breakpoints.TabletLandscape] ||
