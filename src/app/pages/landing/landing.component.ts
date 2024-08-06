@@ -1,3 +1,5 @@
+import { Subscription } from 'rxjs';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { isPlatformBrowser } from '@angular/common';
 import {
   AfterViewInit,
@@ -6,6 +8,7 @@ import {
   ElementRef,
   HostListener,
   Inject,
+  OnDestroy,
   PLATFORM_ID,
   QueryList,
   Renderer2,
@@ -16,13 +19,14 @@ import { Router } from '@angular/router';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import Lenis from 'lenis';
+import { OrientationService } from '../../services/orientation.service';
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss',
 })
-export class LandingComponent implements AfterViewInit {
+export class LandingComponent implements AfterViewInit,OnDestroy {
   model: string = 'assets/images/portfolio_sunil.webp';
   SeoServices:string = "assets/images/services icons/statistics.png"
   AppDevelopmentServices:string = "assets/images/services icons/developer.png"
@@ -45,7 +49,7 @@ export class LandingComponent implements AfterViewInit {
   typeWriterTimeOut!: number;
   eHeader: string = '';
   eParagraph: string = '';
-  // lastOrientation: 'portrait' | 'landscape' = 'portrait';
+  isHandsetLandscape!:boolean
 
 
 orientation: string = 'portrait';
@@ -62,14 +66,17 @@ orientation: string = 'portrait';
   @ViewChildren('verticalLinesLayer')verticalLinesLayer!:QueryList<ElementRef>
 
   isLandscape: boolean = window.innerWidth > window.innerHeight;
-  // Store the initial orientation
+  // // Store the initial orientation
   lastOrientationIsLandscape: boolean = window.innerWidth > window.innerHeight;
+  private tiltOrientationSubscription!: Subscription
 
   constructor(
     // @Inject(PLATFORM_ID) private platformId: Object,
     private cdr: ChangeDetectorRef,
     private renderer: Renderer2,
-    private router: Router
+    private router: Router,
+    private orientationService: OrientationService,
+    private breakpointObserver: BreakpointObserver
   ) {
     gsap.registerPlugin(ScrollTrigger);
   }
@@ -85,14 +92,29 @@ orientation: string = 'portrait';
 
       // Reload the page if the orientation has changed
       // console.log("landscape")
+      this.breakpointObserver.observe([
+        Breakpoints.Handset,
+        Breakpoints.TabletLandscape,
+        Breakpoints.WebLandscape,
+        Breakpoints.TabletPortrait,
+        Breakpoints.WebPortrait
+      ]).subscribe((result:any) => {
+        if (result.matches) {
+          if (result.breakpoints[Breakpoints.TabletLandscape] || result.breakpoints[Breakpoints.TabletPortrait] || result.breakpoints[Breakpoints.WebLandscape] || result.breakpoints[Breakpoints.WebPortrait]) {
       window.location.reload();
-      this.cdr.detectChanges()
+          } else {
+            console.log("No reload")
     }
-
+        }
+      })
+    }
   }
 
   ngAfterViewInit(): void {
-      // this.initiateSmoothScrolling();
+    this.tiltOrientationSubscription = this.orientationService.currentOrientation.subscribe((data) => {
+      this.isHandsetLandscape = data
+      this.cdr.detectChanges()
+      })
 if (this.isLandscape) {
       const section_lg = gsap.utils.toArray('.section-lg');
 
@@ -103,16 +125,17 @@ if (this.isLandscape) {
             start: 'top top',
             snap:{
                snapTo:1 / (section_lg.length - 1),
-          duration:1.5
+          duration:2
             },
         end: this.scrollX.nativeElement.offsetWidth - 100,
-        scrub: 2,
+        scrub: 0.3,
             pin: true,
           },
         })
         .to(section_lg, {
           xPercent: -100 * (section_lg.length - 1),
           ease: 'none',
+      // ease:"power3.inOut"
         });
 
       gsap
@@ -184,17 +207,26 @@ if (this.isLandscape) {
           },
       '-=4'
         )
-        .to('.about-lg', {
-      zIndex: 2,
+    .to(".scrollX",{
+      background:"transparent",
+      pointerEvents:"none",
+      duration:20
+    })
+    .to('.fixed-layer-lg', {
+      width:"90%",
+      zIndex:7
     },"-=2")
+    .to(".about-lg",{
+      zIndex:6
+    })
 
       gsap.to('.scroll-indication-container-lg div', {
         stagger: 0.2,
         opacity: 0,
         ease: 'none',
         scrollTrigger: {
-          start: 'right 90%',
-          end: '90% 70%',
+      start: 'right 95%',
+      end: '90% 90%',
           trigger: '.hero-lg',
           scrub: 2,
           containerAnimation: horizontalScrollAnimation,
@@ -205,7 +237,7 @@ if (this.isLandscape) {
         .timeline({
           scrollTrigger: {
             trigger: '.extra-width',
-        start: 'left 60%',
+        start: 'left 66%',
             end: 'left left',
             containerAnimation: horizontalScrollAnimation,
         scrub: 2,
@@ -215,9 +247,14 @@ if (this.isLandscape) {
           y: '-50vh',
           ease: 'power3.out',
       duration:10
-    },"+=4")
+    })
         .from('.services-header-lg', {
           x: '-50vh',
+    })
+    .to(".black-bg-placeholder",{
+      opacity:0,
+      duration:8,
+      delay:2
         })
         .to('.services-item-lg', {
           opacity: 1,
@@ -238,7 +275,7 @@ if (this.isLandscape) {
           ease: 'power3.out',
           x: '8vw',
       duration:10
-    },"-=2");
+    })
         
 
         gsap.timeline({
@@ -473,6 +510,11 @@ gsap.timeline().from(".hero-phrase-stagger-sm p",{
 }
   }
 
+  ngOnDestroy(): void {
+    if (this.tiltOrientationSubscription) {
+      this.tiltOrientationSubscription.unsubscribe()
+    }
+  }
  
   initTimeLine_lg() {
     gsap
@@ -579,8 +621,9 @@ gsap.timeline().from(".hero-phrase-stagger-sm p",{
 
     tl.from('.bg-img-lg-marker', {
       opacity: 0,
-    }).to(".fixed-layer-lg",{
-      zIndex:2
+    })
+    .to(".fixed-layer-lg",{
+      zIndex:6,
     },"-=0.5")
 
     return tl;

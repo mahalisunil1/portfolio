@@ -1,4 +1,5 @@
 <div class="hero-wrapper-lg" *ngIf="isLandscape">
+  <div class="black-bg-placeholder"></div>
   <div class="fixed-layer-lg">
     <div class="bg-img-lg d-flex align-items-end justify-content-center">
       <img class="bg-img-lg-marker" [src]="model" alt="" />
@@ -1000,6 +1001,12 @@
 </div>
 </div>
 
-<!-- <div class="mobile-landscape-warning" *ngIf="isMobileTilted">
+<div class="handset-landscape-warning d-flex align-items-center justify-content-center " *ngIf="isHandsetLandscape">
+  <div class="warning-content d-flex align-items-center justify-content-center">
+    <div class="d-flex align-items-center justify-content-center flex-column gap-5">
+      <mat-icon>warning</mat-icon>
+      <p>Please switch back to portrait mode for better experience.</p>
+    </div>
 
-</div> -->
+  </div>
+</div>
