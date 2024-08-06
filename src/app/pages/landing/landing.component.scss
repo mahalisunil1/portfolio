@@ -26,6 +26,13 @@
     // opacity: 0.9;
     z-index: 1000;
 }
+.landing-wrapper{
+    width: 100vw;
+    height: 100vh;
+}
+.restrict-view{
+    overflow: hidden;
+}
 .warning-content{
     width: 90%;
     height: 90%;
@@ -36,13 +43,18 @@ p{
     color: white;
     margin: 0;
     padding: 0;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.1rem;
+    font-family: "Oswald",serif;
 }
         mat-icon{
             color: orange;
             animation: scaleUp 1.5s linear infinite;
         }
     }
+}
+.hide{
+    display: none;
 }
 @keyframes scaleUp {
     from{
@@ -183,7 +195,7 @@ z-index: 2;
     height: 100%;
     width: fit-content;
     img{
-        height: 87.5%;
+        height: 90%;
         width: auto;
     }
     position: relative;

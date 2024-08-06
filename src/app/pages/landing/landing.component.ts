@@ -62,6 +62,7 @@ orientation: string = 'portrait';
   @ViewChild('contactDetails')contactDetails!:ElementRef;
   @ViewChild('locationIcon')locationIcon!:ElementRef;
   @ViewChild('svg') svg!: ElementRef;
+  @ViewChild('mainWrapper')mainWrapper!:ElementRef
   @ViewChild('skillTitle') skillTitle!: ElementRef;
   @ViewChildren('verticalLinesLayer')verticalLinesLayer!:QueryList<ElementRef>
 
@@ -104,6 +105,7 @@ orientation: string = 'portrait';
       window.location.reload();
           } else {
             console.log("No reload")
+            window.location.reload()
     }
         }
       })
@@ -113,6 +115,15 @@ orientation: string = 'portrait';
   ngAfterViewInit(): void {
     this.tiltOrientationSubscription = this.orientationService.currentOrientation.subscribe((data) => {
       this.isHandsetLandscape = data
+      this.cdr.detectChanges()
+      if (data) {
+      this.renderer.addClass(this.mainWrapper.nativeElement,"restrict-view")
+      this.cdr.detectChanges()
+      } else {
+      this.renderer.removeClass(this.mainWrapper.nativeElement,"restrict-view")
+      // window.location.reload()
+      this.cdr.detectChanges()
+      }
       this.cdr.detectChanges()
       })
 if (this.isLandscape) {
@@ -125,7 +136,7 @@ if (this.isLandscape) {
             start: 'top top',
             snap:{
                snapTo:1 / (section_lg.length - 1),
-          duration:2
+          duration:2.5
             },
         end: this.scrollX.nativeElement.offsetWidth - 100,
         scrub: 0.3,
@@ -142,9 +153,9 @@ if (this.isLandscape) {
         .timeline({
           scrollTrigger: {
             trigger: '.hero-lg',
-            scrub: 1.5,
+        scrub: 1,
             start: 'right right',
-            end: 'right 80%',
+        end: 'right 50%',
             containerAnimation: horizontalScrollAnimation,
         invalidateOnRefresh: true
           },
@@ -153,7 +164,7 @@ if (this.isLandscape) {
           '.i-container-lg',
           {
             height: 0,
-            duration: 0.1,
+        // duration: 0.1,
           },
           '-=1'
         )
@@ -161,7 +172,7 @@ if (this.isLandscape) {
           '.typewriter-text-container',
           {
             height: 0,
-            duration: 0.1,
+        duration: 1,
           },
           '-=1'
         )
@@ -169,7 +180,7 @@ if (this.isLandscape) {
           '.plain-text-container',
           {
             height: 0,
-            duration: 0.1,
+        duration: 1,
           },
           '-=1'
         )
@@ -179,24 +190,29 @@ if (this.isLandscape) {
             opacity: 0,
             x: '-15vw',
             ease: 'power3.out',
-            duration: 3,
+        duration: 6,
           },
           '-=1'
         )
         .to('.arrow-container-lg', {
           height: 0,
           opacity: 0,
-          duration: 10,
+      duration: 20,
         })
         .to(
           '.phrase-container-lg',
           {
             stagger: 2,
-            duration: 8,
+        duration: 15,
             opacity: 0,
           },
           '-=2'
         )
+    // .to(".black-bg-placeholder",{
+    //   opacity:0,
+    //   duration:13,
+    //   // delay:2
+    // })
         .to(
           '.letter-stagger-container-lg',
           {
@@ -207,11 +223,6 @@ if (this.isLandscape) {
           },
       '-=4'
         )
-    .to(".scrollX",{
-      background:"transparent",
-      pointerEvents:"none",
-      duration:20
-    })
     .to('.fixed-layer-lg', {
       width:"90%",
       zIndex:7
@@ -228,7 +239,7 @@ if (this.isLandscape) {
       start: 'right 95%',
       end: '90% 90%',
           trigger: '.hero-lg',
-          scrub: 2,
+      scrub: 3,
           containerAnimation: horizontalScrollAnimation,
         },
       });
@@ -237,8 +248,8 @@ if (this.isLandscape) {
         .timeline({
           scrollTrigger: {
             trigger: '.extra-width',
-        start: 'left 66%',
-            end: 'left left',
+        start: '10% 50%',
+        end: '10% 0%',
             containerAnimation: horizontalScrollAnimation,
         scrub: 2,
           },
@@ -252,9 +263,29 @@ if (this.isLandscape) {
           x: '-50vh',
     })
     .to(".black-bg-placeholder",{
+      opacity:0.8,
+      // duration:13,
+      // delay:2
+    })
+    .to(".black-bg-placeholder",{
+      opacity:0.6,
+      // duration:13,
+      // delay:2
+    })
+    .to(".black-bg-placeholder",{
+      opacity:0.4,
+      // duration:13,
+      // delay:2
+    })
+    .to(".black-bg-placeholder",{
+      opacity:0.2,
+      // duration:13,
+      // delay:2
+    })
+    .to(".black-bg-placeholder",{
       opacity:0,
-      duration:8,
-      delay:2
+      // duration:13,
+      // delay:2
         })
         .to('.services-item-lg', {
           opacity: 1,
@@ -286,7 +317,7 @@ if (this.isLandscape) {
             end:"bottom bottom", 
             snap:{
               snapTo:1,
-          duration:1.5,
+          duration:1,
               ease:"power1.inOut"
             }
           }
@@ -309,7 +340,7 @@ if (this.isLandscape) {
           scrollTrigger: {
             trigger: '.contact-lg',
             start: '20% bottom',
-            scrub: 5,
+        scrub: 6,
             end: '90% bottom'    ,
             onEnter:() => {
              setTimeout(() => {
