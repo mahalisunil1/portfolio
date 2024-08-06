@@ -28,19 +28,20 @@ import { OrientationService } from '../../services/orientation.service';
 })
 export class LandingComponent implements AfterViewInit,OnDestroy {
   model: string = 'assets/images/portfolio_sunil.webp';
-  SeoServices:string = "assets/images/services icons/statistics.png"
-  AppDevelopmentServices:string = "assets/images/services icons/developer.png"
-  WebDevelopmentServices:string = "assets/images/services icons/coding (1).png"
+  SeoServices: string = 'assets/images/services icons/statistics.png';
+  AppDevelopmentServices: string = 'assets/images/services icons/developer.png';
+  WebDevelopmentServices: string =
+    'assets/images/services icons/coding (1).png';
   smoothScrollingConfigured: boolean = false;
-  currentPreview!:string
-  playFooterAnimation:boolean = false
+  currentPreview!: string;
+  playFooterAnimation: boolean = false;
 
   textArray: string[] = ['Code', 'Design', 'Implement'];
   i: number = 0;
   a: number = 0;
   isBackspacing: boolean = false;
   isParagraph: boolean = false;
-  initiateDynamicGridAnimation:boolean = false
+  initiateDynamicGridAnimation: boolean = false;
 
   speedForward: number = 100;
   speedWait: number = 2200;
@@ -49,7 +50,7 @@ export class LandingComponent implements AfterViewInit,OnDestroy {
   typeWriterTimeOut!: number;
   eHeader: string = '';
   eParagraph: string = '';
-  isHandsetLandscape!:boolean
+  isHandsetLandscape!: boolean;
 
 
 orientation: string = 'portrait';
@@ -62,14 +63,15 @@ orientation: string = 'portrait';
   @ViewChild('contactDetails')contactDetails!:ElementRef;
   @ViewChild('locationIcon')locationIcon!:ElementRef;
   @ViewChild('svg') svg!: ElementRef;
-  @ViewChild('mainWrapper')mainWrapper!:ElementRef
+  @ViewChild('mainWrapper') mainWrapper!: ElementRef;
   @ViewChild('skillTitle') skillTitle!: ElementRef;
-  @ViewChildren('verticalLinesLayer')verticalLinesLayer!:QueryList<ElementRef>
+  @ViewChildren('verticalLinesLayer')
+  verticalLinesLayer!: QueryList<ElementRef>;
 
   isLandscape: boolean = window.innerWidth > window.innerHeight;
   // // Store the initial orientation
   lastOrientationIsLandscape: boolean = window.innerWidth > window.innerHeight;
-  private tiltOrientationSubscription!: Subscription
+  private tiltOrientationSubscription!: Subscription;
 
   constructor(
     // @Inject(PLATFORM_ID) private platformId: Object,
@@ -84,8 +86,8 @@ orientation: string = 'portrait';
   
   @HostListener('window:resize', ['$event'])
   onResize(event:any) {
-
-    const currentOrientationIsLandscape = window.innerWidth > window.innerHeight;
+    const currentOrientationIsLandscape =
+      window.innerWidth > window.innerHeight;
     // Check if orientation has changed
     if (currentOrientationIsLandscape !== this.lastOrientationIsLandscape) {
       // Update the last orientation to current
@@ -93,39 +95,68 @@ orientation: string = 'portrait';
 
       // Reload the page if the orientation has changed
       // console.log("landscape")
-      this.breakpointObserver.observe([
+      this.breakpointObserver
+        .observe([
         Breakpoints.Handset,
         Breakpoints.TabletLandscape,
         Breakpoints.WebLandscape,
         Breakpoints.TabletPortrait,
-        Breakpoints.WebPortrait
-      ]).subscribe((result:any) => {
+          Breakpoints.WebPortrait,
+          Breakpoints.XSmall
+        ])
+        .subscribe((result: any) => {
         if (result.matches) {
-          if (result.breakpoints[Breakpoints.TabletLandscape] || result.breakpoints[Breakpoints.TabletPortrait] || result.breakpoints[Breakpoints.WebLandscape] || result.breakpoints[Breakpoints.WebPortrait]) {
+            // Identify and log the device type
+            if (
+              result.breakpoints[Breakpoints.WebLandscape] ||
+              result.breakpoints[Breakpoints.WebPortrait]
+            ) {
+              console.log('Device type: Desktop');
+            } else if (
+              result.breakpoints[Breakpoints.TabletLandscape] ||
+              result.breakpoints[Breakpoints.TabletPortrait]
+            ) {
+              console.log('Device type: Tablet');
+            } else if (result.breakpoints[Breakpoints.XSmall]) {
+              console.log('Device type: Handset');
+              window.location.reload()
+            }
+            if (
+              result.breakpoints[Breakpoints.TabletLandscape] ||
+              result.breakpoints[Breakpoints.TabletPortrait] ||
+              result.breakpoints[Breakpoints.WebLandscape] ||
+              result.breakpoints[Breakpoints.WebPortrait]
+            ) {
       window.location.reload();
           } else {
-            console.log("No reload")
-            window.location.reload()
+              console.log('No reload');
     }
         }
-      })
+        });
     }
   }
 
   ngAfterViewInit(): void {
-    this.tiltOrientationSubscription = this.orientationService.currentOrientation.subscribe((data) => {
-      this.isHandsetLandscape = data
-      this.cdr.detectChanges()
+    this.tiltOrientationSubscription =
+      this.orientationService.currentOrientation.subscribe((data) => {
+        this.isHandsetLandscape = data;
+        this.cdr.detectChanges();
       if (data) {
-      this.renderer.addClass(this.mainWrapper.nativeElement,"restrict-view")
-      this.cdr.detectChanges()
+          this.renderer.addClass(
+            this.mainWrapper.nativeElement,
+            'restrict-view'
+          );
+          this.cdr.detectChanges();
       } else {
-      this.renderer.removeClass(this.mainWrapper.nativeElement,"restrict-view")
+          this.renderer.removeClass(
+            this.mainWrapper.nativeElement,
+            'restrict-view'
+          );
       // window.location.reload()
-      this.cdr.detectChanges()
+          this.cdr.detectChanges();
       }
-      this.cdr.detectChanges()
-      })
+        this.cdr.detectChanges();
+      });
 if (this.isLandscape) {
       const section_lg = gsap.utils.toArray('.section-lg');
 
@@ -136,7 +167,7 @@ if (this.isLandscape) {
             start: 'top top',
             snap:{
                snapTo:1 / (section_lg.length - 1),
-          duration:2.5
+              duration: 2.5,
             },
         end: this.scrollX.nativeElement.offsetWidth - 100,
         scrub: 0.3,
@@ -157,7 +188,7 @@ if (this.isLandscape) {
             start: 'right right',
         end: 'right 50%',
             containerAnimation: horizontalScrollAnimation,
-        invalidateOnRefresh: true
+            invalidateOnRefresh: true,
           },
         })
         .to(
@@ -223,13 +254,17 @@ if (this.isLandscape) {
           },
       '-=4'
         )
-    .to('.fixed-layer-lg', {
-      width:"90%",
-      zIndex:7
-    },"-=2")
-    .to(".about-lg",{
-      zIndex:6
-    })
+        .to(
+          '.fixed-layer-lg',
+          {
+            width: '90%',
+            zIndex: 7,
+          },
+          '-=2'
+        )
+        .to('.about-lg', {
+          zIndex: 6,
+        });
 
       gsap.to('.scroll-indication-container-lg div', {
         stagger: 0.2,
@@ -257,32 +292,32 @@ if (this.isLandscape) {
         .from('.about-text', {
           y: '-50vh',
           ease: 'power3.out',
-      duration:10
+          duration: 10,
     })
         .from('.services-header-lg', {
           x: '-50vh',
     })
-    .to(".black-bg-placeholder",{
+        .to('.black-bg-placeholder', {
       opacity:0.8,
       // duration:13,
       // delay:2
     })
-    .to(".black-bg-placeholder",{
+        .to('.black-bg-placeholder', {
       opacity:0.6,
       // duration:13,
       // delay:2
     })
-    .to(".black-bg-placeholder",{
+        .to('.black-bg-placeholder', {
       opacity:0.4,
       // duration:13,
       // delay:2
     })
-    .to(".black-bg-placeholder",{
+        .to('.black-bg-placeholder', {
       opacity:0.2,
       // duration:13,
       // delay:2
     })
-    .to(".black-bg-placeholder",{
+        .to('.black-bg-placeholder', {
       opacity:0,
       // duration:13,
       // delay:2
@@ -292,51 +327,60 @@ if (this.isLandscape) {
           transform: 'scale(1)',
       stagger: 1,
           ease: 'power3.out',
-      duration:10
+          duration: 10,
         })
-        .from('.line-lg', {
+        .from(
+          '.line-lg',
+          {
           height: 0,
           opacity: 0,
           ease: 'power3.out',
-      duration:10
-    },"-=3")
+            duration: 10,
+          },
+          '-=3'
+        )
         .from('.skill-icon', {
           stagger: 0.1,
           opacity: 0,
           ease: 'power3.out',
           x: '8vw',
-      duration:10
-    })
+          duration: 10,
+        });
         
-
-        gsap.timeline({
+      gsap
+        .timeline({
           scrollTrigger:{
-            trigger:".contact-lg",
-            start:"top bottom",
+            trigger: '.contact-lg',
+            start: 'top bottom',
             scrub: true,
-            end:"bottom bottom", 
+            end: 'bottom bottom',
             snap:{
               snapTo:1,
           duration:1,
-              ease:"power1.inOut"
-            }
-          }
-        }).to(".about-lg",{
-          transform:"scale(0.8)",
-          overflow:"hidden",
-          borderRadius:"20px",
+              ease: 'power1.inOut',
+            },
+          },
+        })
+        .to('.about-lg', {
+          transform: 'scale(0.8)',
+          overflow: 'hidden',
+          borderRadius: '20px',
           opacity:0,
         })
-        .to(".fixed-layer-lg",{
-          transform:"scale(0.8)",
-          opacity:0
-        },"-=0.5")
-        .to(".contact-lg",{
-          yPercent:0
-        })
+        .to(
+          '.fixed-layer-lg',
+          {
+            transform: 'scale(0.8)',
+            opacity: 0,
+          },
+          '-=0.5'
+        )
+        .to('.contact-lg', {
+          yPercent: 0,
+        });
     
-
-      gsap.timeline({
+      gsap
+        .timeline({
           scrollTrigger: {
             trigger: '.contact-lg',
             start: '20% bottom',
@@ -344,68 +388,99 @@ if (this.isLandscape) {
             end: '90% bottom'    ,
             onEnter:() => {
              setTimeout(() => {
-              const verticalWaveElements = gsap.utils.toArray(".vertical-div-groupby") as HTMLElement[];
-              const horizontalWaveElements = gsap.utils.toArray(".horizontal-wave-div") as HTMLElement[];
+                const verticalWaveElements = gsap.utils.toArray(
+                  '.vertical-div-groupby'
+                ) as HTMLElement[];
+                const horizontalWaveElements = gsap.utils.toArray(
+                  '.horizontal-wave-div'
+                ) as HTMLElement[];
 
-              gsap.timeline()
+                gsap
+                  .timeline()
               .to(verticalWaveElements,{
-                width:"12.5vw",
+                    width: '12.5vw',
                 opacity:0.4,
                 stagger:0.5,
-                ease: "power1.inOut",  // Smooth transition for the animation
-                background:"#353434",
+                    ease: 'power1.inOut', // Smooth transition for the animation
+                    background: '#353434',
                 repeat:-1,
-                yoyo:true
+                    yoyo: true,
               })
-              .to(horizontalWaveElements,{
-                height:"12.5vh",
+                  .to(
+                    horizontalWaveElements,
+                    {
+                      height: '12.5vh',
                 stagger:0.4,
                 opacity:0.4,
-                ease: "power1.inOut",  // Smooth transition for the animation
-                background:"#000",
+                      ease: 'power1.inOut', // Smooth transition for the animation
+                      background: '#000',
                 repeat:-1,
-                yoyo:true
-              },"-=4.5")  
+                      yoyo: true,
+                    },
+                    '-=4.5'
+                  );
              }, 2500);
-            }      
+            },
           },
         })
-        .from('.vertical-lines-layer', {
+        .from(
+          '.vertical-lines-layer',
+          {
           width: 0,
           opacity: 0,
-          border:"0.3px solid rgba(163, 163, 163, 0.8)",
+            border: '0.3px solid rgba(163, 163, 163, 0.8)',
           onComplete:() => {
-            this.playFooterAnimation = true
-            this.cdr.detectChanges()
-            console.log(this.playFooterAnimation)
-          }
-        },"-=0.2")
+              this.playFooterAnimation = true;
+              this.cdr.detectChanges();
+              console.log(this.playFooterAnimation);
+            },
+          },
+          '-=0.2'
+        )
         .from(
           '.horizontal-lines-layer',
           {
             height: 0,
             opacity: 0,
-          border:"0.3px solid rgba(163, 163, 163, 0.8)",
-          },"-=0.6")
-          .from(".contact-bg-text",{
+            border: '0.3px solid rgba(163, 163, 163, 0.8)',
+          },
+          '-=0.6'
+        )
+        .from('.contact-bg-text', {
             height:0,
-            y:-100
+          y: -100,
           })
-          .from(".location-wrapper div",{
-            x:"-50vw"
-          },"-=0.4")
-          .from(".socials-wrapper div",{
-            y:"-60vh"
-          },"-=0.4")
-          .from(".contact-wrapper div",{
-            x:"50vw"
-          },"-=0.4")
-          .from(".socials-header-wrapper h2",{
-            opacity:0
-          },"-=1")
-          .from(".socials-header-wrapper span",{
-            width:0
-          })
+        .from(
+          '.location-wrapper div',
+          {
+            x: '-50vw',
+          },
+          '-=0.4'
+        )
+        .from(
+          '.socials-wrapper div',
+          {
+            y: '-60vh',
+          },
+          '-=0.4'
+        )
+        .from(
+          '.contact-wrapper div',
+          {
+            x: '50vw',
+          },
+          '-=0.4'
+        )
+        .from(
+          '.socials-header-wrapper h2',
+          {
+            opacity: 0,
+          },
+          '-=1'
+        )
+        .from('.socials-header-wrapper span', {
+          width: 0,
+        });
          
      
         
@@ -417,133 +492,176 @@ if (this.isLandscape) {
       this.cdr.detectChanges();
 }else{
   // const sectionsSm = gsap.utils.toArray(".section-wrapper-one")
-  gsap.timeline({
+      gsap
+        .timeline({
     scrollTrigger:{
-      trigger:".about-section-sm",
+            trigger: '.about-section-sm',
       pin:true,
       scrub:1,
       snap:{
         snapTo:1,
-        duration:1.2
+              duration: 1.2,
       },
-      start:"top top",
-      end:"bottom top"
-    }
-  }).to(".about-section-sm",{
-    transform:"scale(0.5)",
-    borderRadius:"30px",
-  opacity:0
+            start: 'top top',
+            end: 'bottom top',
+          },
+        })
+        .to('.about-section-sm', {
+          transform: 'scale(0.5)',
+          borderRadius: '30px',
+          opacity: 0,
   })
-  .to(".about-section-sm",{
+        .to(
+          '.about-section-sm',
+          {
     yPercent:0,
-  },"-=0.5")
-  .to(".contact-section-sm",{
+          },
+          '-=0.5'
+        )
+        .to(
+          '.contact-section-sm',
+          {
     yPercent:0,
-  },"-=0.5")
-gsap.timeline({
+          },
+          '-=0.5'
+        );
+      gsap
+        .timeline({
   scrollTrigger:{
-    trigger:".hero-section-sm",
+            trigger: '.hero-section-sm',
     pin:true,
     scrub:1,
     snap:{
       snapTo:1,
-      duration:1.2
+              duration: 1.2,
     },
-    start:"top top",
-    end:"bottom top"
-  }
-}).to(".hero-section-sm",{
-  transform:"scale(0.5)",
-  borderRadius:"30px",
+            start: 'top top',
+            end: 'bottom top',
+          },
+        })
+        .to('.hero-section-sm', {
+          transform: 'scale(0.5)',
+          borderRadius: '30px',
   opacity:0,
-  duration:10
+          duration: 10,
 })
-.from(".about-header-wrapper span",{
+        .from('.about-header-wrapper span', {
   width:0,
-  duration:7
-}).from(".about-header-wrapper h3",{
-  y:"6vh",
+          duration: 7,
+        })
+        .from('.about-header-wrapper h3', {
+          y: '6vh',
   stagger:0.1,
 opacity:0,
-duration:7
+          duration: 7,
 })
-.from(".about-description-sm p",{
+        .from('.about-description-sm p', {
   opacity:0,
   y:75,
-  duration:5
+          duration: 5,
 })
-.from(".services-header-wrapper-sm h3",{
-  x:"-25vw",
+        .from('.services-header-wrapper-sm h3', {
+          x: '-25vw',
   opacity:0,
-  duration:8
+          duration: 8,
 })
-.from(".service-item-sm",{
+        .from('.service-item-sm', {
   stagger:0.3,
-  transform:"scale(0.5)",
+          transform: 'scale(0.5)',
   opacity:0,
-  duration:8
-})
-gsap.timeline().from(".hero-phrase-stagger-sm p",{
+          duration: 8,
+        });
+      gsap
+        .timeline()
+        .from('.hero-phrase-stagger-sm p', {
   stagger:0.1,
   opacity:0,
   y:100,
-  duration:1.5
+          duration: 1.5,
 })
-.to(".img-reveal-stagger-sm",{
-  background:"#1b1b1b"
+        .to('.img-reveal-stagger-sm', {
+          background: '#1b1b1b',
 })
-.to(".hero-section-phrase-layer-sm",{
-  y:"27%",
-  delay:0.7
+        .to('.hero-section-phrase-layer-sm', {
+          y: '27%',
+          delay: 0.7,
 })
-.to(".img-reveal-stagger-left-sm",{
+        .to(
+          '.img-reveal-stagger-left-sm',
+          {
   stagger:0.1,
-  x:"-100vw",
-},"-=0.5")
-.to(".img-reveal-stagger-right-sm",{
+            x: '-100vw',
+          },
+          '-=0.5'
+        )
+        .to(
+          '.img-reveal-stagger-right-sm',
+          {
   stagger:0.1,
-  x:"100vw"
-},"-=1")
-.from(".bg-img-layer-sm img",{
-  opacity:0
-},"-=1")
-.from(".bg-text-stagger-sm",{
+            x: '100vw',
+          },
+          '-=1'
+        )
+        .from(
+          '.bg-img-layer-sm img',
+          {
+            opacity: 0,
+          },
+          '-=1'
+        )
+        .from(
+          '.bg-text-stagger-sm',
+          {
   height:0,
   opacity:0,
   stagger:0.1,
-  y:50
-},"-=0.7")
-.to(".hero-phrase-stagger-sm p span",{
-  color:"#ec7f37"
+            y: 50,
+          },
+          '-=0.7'
+        )
+        .to('.hero-phrase-stagger-sm p span', {
+          color: '#ec7f37',
 })
-.from(".bg-text-layer-sm mat-icon",{
-  y:"-50vh",
+        .from(
+          '.bg-text-layer-sm mat-icon',
+          {
+            y: '-50vh',
   opacity:0,
-},"-=1")
-.to(".bg-text-layer-sm mat-icon",{
-  x:"-62.5vw",
+          },
+          '-=1'
+        )
+        .to('.bg-text-layer-sm mat-icon', {
+          x: '-62.5vw',
   duration:1,
-  rotate:-360
+          rotate: -360,
 })
-.to(".bg-text-layer-sm mat-icon",{
-  color:"#ec7f37"
-},"-=0.6")
-.to(".letter-rotate",{
+        .to(
+          '.bg-text-layer-sm mat-icon',
+          {
+            color: '#ec7f37',
+          },
+          '-=0.6'
+        )
+        .to(
+          '.letter-rotate',
+          {
   rotate:360,
-},"-=0.5")
-.to(".bg-text-layer-sm mat-icon",{
-  rotation:"+=360",
+          },
+          '-=0.5'
+        )
+        .to('.bg-text-layer-sm mat-icon', {
+          rotation: '+=360',
   repeat:-1,
-  ease:"none",
+          ease: 'none',
   duration:3,
-  color:"#ec7f37"
-})
+          color: '#ec7f37',
+        });
 }
   }
 
   ngOnDestroy(): void {
     if (this.tiltOrientationSubscription) {
-      this.tiltOrientationSubscription.unsubscribe()
+      this.tiltOrientationSubscription.unsubscribe();
     }
   }
  
@@ -652,11 +770,13 @@ gsap.timeline().from(".hero-phrase-stagger-sm p",{
 
     tl.from('.bg-img-lg-marker', {
       opacity: 0,
-    })
-    .to(".fixed-layer-lg",{
+    }).to(
+      '.fixed-layer-lg',
+      {
       zIndex:6,
-    },"-=0.5")
-
+      },
+      '-=0.5'
+    );
     return tl;
   }
 
@@ -785,81 +905,123 @@ gsap.timeline().from(".hero-phrase-stagger-sm p",{
   }
 
   mapHover(){
-    this.renderer.setStyle(this.mapFrame.nativeElement,"width","100%")
-    this.renderer.setStyle(this.mapFrame.nativeElement,"height","100%")
-    this.renderer.setStyle(this.mapFrame.nativeElement,"transition","0.3s linear")
+    this.renderer.setStyle(this.mapFrame.nativeElement, 'width', '100%');
+    this.renderer.setStyle(this.mapFrame.nativeElement, 'height', '100%');
+    this.renderer.setStyle(
+      this.mapFrame.nativeElement,
+      'transition',
+      '0.3s linear'
+    );
   }
 
   contactHover(){
-   this.renderer.setStyle(this.contactDetails.nativeElement,"width","100%")
-   this.renderer.setStyle(this.contactDetails.nativeElement,"height","100%")
-   this.renderer.setStyle(this.contactDetails.nativeElement,"transition","0.3s linear")
+    this.renderer.setStyle(this.contactDetails.nativeElement, 'width', '100%');
+    this.renderer.setStyle(this.contactDetails.nativeElement, 'height', '100%');
+    this.renderer.setStyle(
+      this.contactDetails.nativeElement,
+      'transition',
+      '0.3s linear'
+    );
   }
 
   contactLeave(){
-    this.renderer.setStyle(this.contactDetails.nativeElement,"width","90%")
-    this.renderer.setStyle(this.contactDetails.nativeElement,"height","65%")
-    this.renderer.setStyle(this.contactDetails.nativeElement,"transition","0.3s linear")
+    this.renderer.setStyle(this.contactDetails.nativeElement, 'width', '90%');
+    this.renderer.setStyle(this.contactDetails.nativeElement, 'height', '65%');
+    this.renderer.setStyle(
+      this.contactDetails.nativeElement,
+      'transition',
+      '0.3s linear'
+    );
    }
 
    socialsHover(){
-    this.renderer.setStyle(this.socials.nativeElement,"width","100%")
-    this.renderer.setStyle(this.socials.nativeElement,"height","100%")
-    this.renderer.setStyle(this.socials.nativeElement,"transition","0.3s linear")
+    this.renderer.setStyle(this.socials.nativeElement, 'width', '100%');
+    this.renderer.setStyle(this.socials.nativeElement, 'height', '100%');
+    this.renderer.setStyle(
+      this.socials.nativeElement,
+      'transition',
+      '0.3s linear'
+    );
   }
  
    socialsLeave(){
-    this.renderer.setStyle(this.socials.nativeElement,"width","70%")
-    this.renderer.setStyle(this.socials.nativeElement,"height","85%")
-    this.renderer.setStyle(this.socials.nativeElement,"transition","0.3s linear")
+    this.renderer.setStyle(this.socials.nativeElement, 'width', '70%');
+    this.renderer.setStyle(this.socials.nativeElement, 'height', '85%');
+    this.renderer.setStyle(
+      this.socials.nativeElement,
+      'transition',
+      '0.3s linear'
+    );
    }
 
    previewHover(platform:string){
-    if (platform === "facebook") {
-      this.currentPreview = "assets/images/social-media-preview/facebook preview.webp"
-    }
-    else if (platform === "medium") {
-      this.currentPreview = "assets/images/social-media-preview/medium preview.webp"
-    }
-    else if (platform === "linkedin") {
-      this.currentPreview = "assets/images/social-media-preview/linkedin preview.webp"
-    }
-    else if (platform === "x") {
-      this.currentPreview = "assets/images/social-media-preview/twitter preview.webp"
+    if (platform === 'facebook') {
+      this.currentPreview =
+        'assets/images/social-media-preview/facebook preview.webp';
+    } else if (platform === 'medium') {
+      this.currentPreview =
+        'assets/images/social-media-preview/medium preview.webp';
+    } else if (platform === 'linkedin') {
+      this.currentPreview =
+        'assets/images/social-media-preview/linkedin preview.webp';
+    } else if (platform === 'x') {
+      this.currentPreview =
+        'assets/images/social-media-preview/twitter preview.webp';
     }
 
     setTimeout(() => {
-      this.renderer.setStyle(this.previewFrame.nativeElement,"transform","scale(1.2)")
-      this.renderer.setStyle(this.previewFrame.nativeElement,"transition","0.2s linear")
-      this.renderer.setStyle(this.previewFrame.nativeElement,"opacity","1")
+      this.renderer.setStyle(
+        this.previewFrame.nativeElement,
+        'transform',
+        'scale(1.2)'
+      );
+      this.renderer.setStyle(
+        this.previewFrame.nativeElement,
+        'transition',
+        '0.2s linear'
+      );
+      this.renderer.setStyle(this.previewFrame.nativeElement, 'opacity', '1');
     }, 300);
    }
 
    previewLeave(platform:string){
 
-  this.currentPreview = ""
-    this.renderer.setStyle(this.previewFrame.nativeElement,"transform","scale(1)")
-    this.renderer.setStyle(this.previewFrame.nativeElement,"transition","0.2s linear")
-    this.renderer.setStyle(this.previewFrame.nativeElement,"opacity","0")
+    this.currentPreview = '';
+    this.renderer.setStyle(
+      this.previewFrame.nativeElement,
+      'transform',
+      'scale(1)'
+    );
+    this.renderer.setStyle(
+      this.previewFrame.nativeElement,
+      'transition',
+      '0.2s linear'
+    );
+    this.renderer.setStyle(this.previewFrame.nativeElement, 'opacity', '0');
    }
 
   mapLeave(){
-    this.renderer.setStyle(this.mapFrame.nativeElement,"width","85%")
-    this.renderer.setStyle(this.mapFrame.nativeElement,"height","80%")
-    this.renderer.setStyle(this.mapFrame.nativeElement,"transition","0.3s linear")
+    this.renderer.setStyle(this.mapFrame.nativeElement, 'width', '85%');
+    this.renderer.setStyle(this.mapFrame.nativeElement, 'height', '80%');
+    this.renderer.setStyle(
+      this.mapFrame.nativeElement,
+      'transition',
+      '0.3s linear'
+    );
       }
 
       redirect(type:string){
   // this.router.navigate([""])
-  if (type === "facebook") {
+    if (type === 'facebook') {
     window.open('https://facebook.com/sunilMahali.codespace', '_blank');
-  }else if(type === "medium"){
+    } else if (type === 'medium') {
     window.open('https://medium.com/@sunil.kumars360', '_blank');
-  }
-  else if(type === "linkedin"){
-    window.open('https://www.linkedin.com/in/sunil-mahali-6b04a3240/', '_blank');
-  }
-  else if(type === "x"){
+    } else if (type === 'linkedin') {
+      window.open(
+        'https://www.linkedin.com/in/sunil-mahali-6b04a3240/',
+        '_blank'
+      );
+    } else if (type === 'x') {
     window.open('https://x.com/dev_sunilmahali', '_blank');
   }
 
