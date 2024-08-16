@@ -19,9 +19,6 @@ import { GoogleMapsModule } from '@angular/google-maps';
     AppComponent,
     NavbarComponent,
     SidenavComponent,
-    // MapComponent,
-    // BgLightRimComponent,
-    // FooterComponent
   ],
   imports: [BrowserModule, AppRoutingModule, GoogleMapsModule],
   providers: [provideClientHydration(), provideAnimationsAsync()],
