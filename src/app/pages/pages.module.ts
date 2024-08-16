@@ -10,6 +10,7 @@ import { FooterComponent } from '../helpers/footer/footer.component';
 import { BgLightRimComponent } from '../animations/bg-light-rim/bg-light-rim.component';
 import { MapComponent } from '../helpers/map/map.component';
 import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
+import { EmblemTextComponent } from '../animations/emblem-text/emblem-text.component';
 
 
 
@@ -21,7 +22,8 @@ import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
     ProjectsComponent,
     FooterComponent,
     BgLightRimComponent,
-    MapComponent
+    MapComponent,
+    EmblemTextComponent
   ],
   imports: [
     CommonModule,

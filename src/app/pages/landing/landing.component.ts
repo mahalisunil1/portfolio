@@ -51,7 +51,7 @@ export class LandingComponent implements AfterViewInit,OnDestroy {
   eHeader: string = '';
   eParagraph: string = '';
   isHandsetLandscape!: boolean;
-
+  showTechStackSm:boolean = false
 
 orientation: string = 'portrait';
 
@@ -65,8 +65,8 @@ orientation: string = 'portrait';
   @ViewChild('svg') svg!: ElementRef;
   @ViewChild('mainWrapper') mainWrapper!: ElementRef;
   @ViewChild('skillTitle') skillTitle!: ElementRef;
-  @ViewChildren('verticalLinesLayer')
-  verticalLinesLayer!: QueryList<ElementRef>;
+  @ViewChildren('verticalLinesLayer')  verticalLinesLayer!: QueryList<ElementRef>;
+  @ViewChild('techStackSm')techStackSm!:ElementRef
 
   isLandscape: boolean = window.innerWidth > window.innerHeight;
   // // Store the initial orientation
@@ -294,33 +294,23 @@ if (this.isLandscape) {
           ease: 'power3.out',
           duration: 10,
     })
+        .to('.black-bg-placeholder', {
+          opacity: 0.8
+    })
+        .to('.black-bg-placeholder', {
+          opacity: 0.6
+    })
+        .to('.black-bg-placeholder', {
+          opacity: 0.4
+    })
+        .to('.black-bg-placeholder', {
+          opacity: 0.2
+    })
+        .to('.black-bg-placeholder', {
+          opacity: 0
+        })
         .from('.services-header-lg', {
           x: '-50vh',
-    })
-        .to('.black-bg-placeholder', {
-      opacity:0.8,
-      // duration:13,
-      // delay:2
-    })
-        .to('.black-bg-placeholder', {
-      opacity:0.6,
-      // duration:13,
-      // delay:2
-    })
-        .to('.black-bg-placeholder', {
-      opacity:0.4,
-      // duration:13,
-      // delay:2
-    })
-        .to('.black-bg-placeholder', {
-      opacity:0.2,
-      // duration:13,
-      // delay:2
-    })
-        .to('.black-bg-placeholder', {
-      opacity:0,
-      // duration:13,
-      // delay:2
         })
         .to('.services-item-lg', {
           opacity: 1,
@@ -530,7 +520,7 @@ if (this.isLandscape) {
   scrollTrigger:{
             trigger: '.hero-section-sm',
     pin:true,
-    scrub:1,
+            scrub: 2,
     snap:{
       snapTo:1,
               duration: 1.2,
@@ -545,32 +535,60 @@ if (this.isLandscape) {
   opacity:0,
           duration: 10,
 })
-        .from('.about-header-wrapper span', {
+        .from(".about-letter-stagger-wrapper-sm span",{
   width:0,
-          duration: 7,
-        })
-        .from('.about-header-wrapper h3', {
-          y: '6vh',
-  stagger:0.1,
 opacity:0,
-          duration: 7,
+          duration:15,
+          x:0
 })
-        .from('.about-description-sm p', {
-  opacity:0,
-  y:75,
-          duration: 5,
+        .from(".about-letter-stagger-wrapper-sm h3",{
+          stagger:0.5,
+          // y:50,
+          duration:20,
+          opacity:0
 })
-        .from('.services-header-wrapper-sm h3', {
-          x: '-25vw',
+        .from(".about-description-wrapper-sm p",{
+         y:"-75vh",
+         duration:10,
+         opacity:0
+        },"-=1.2")
+        .from(".services-header-wrapper-sm h3",{
+          x:"-25vw",
   opacity:0,
-          duration: 8,
-})
-        .from('.service-item-sm', {
-  stagger:0.3,
-          transform: 'scale(0.5)',
+          duration:20
+        },"-=1")
+        .from(".service-item-sm",{
+          y:100,
+          stagger:1,
   opacity:0,
-          duration: 8,
-        });
+          duration:20
+        },"-=1")
+        // .from('.about-header-wrapper span', {
+        //   width: 0,
+        //   duration: 7,
+        // })
+        // .from('.about-header-wrapper h3', {
+        //   y: '6vh',
+        //   stagger: 0.1,
+        //   opacity: 0,
+        //   duration: 7,
+        // })
+        // .from('.about-description-sm p', {
+        //   opacity: 0,
+        //   y: 75,
+        //   duration: 5,
+        // })
+        // .from('.services-header-wrapper-sm h3', {
+        //   x: '-25vw',
+        //   opacity: 0,
+        //   duration: 8,
+        // })
+        // .from('.service-item-sm', {
+        //   stagger: 0.3,
+        //   transform: 'scale(0.5)',
+        //   opacity: 0,
+        //   duration: 8,
+        // });
       gsap
         .timeline()
         .from('.hero-phrase-stagger-sm p', {
@@ -584,13 +602,13 @@ opacity:0,
 })
         .to('.hero-section-phrase-layer-sm', {
           y: '27%',
-          delay: 0.7,
+          delay: 0.3,
 })
         .to(
           '.img-reveal-stagger-left-sm',
           {
   stagger:0.1,
-            x: '-100vw',
+            x: '-110vw',
           },
           '-=0.5'
         )
@@ -598,7 +616,7 @@ opacity:0,
           '.img-reveal-stagger-right-sm',
           {
   stagger:0.1,
-            x: '100vw',
+            x: '110vw',
           },
           '-=1'
         )
@@ -615,9 +633,10 @@ opacity:0,
   height:0,
   opacity:0,
   stagger:0.1,
-            y: 50,
+            y: "5vh",
+            duration:0.3
           },
-          '-=0.7'
+          '-=0.8'
         )
         .to('.hero-phrase-stagger-sm p span', {
           color: '#ec7f37',
@@ -1010,6 +1029,17 @@ opacity:0,
     );
       }
 
+  showTechStack(){
+    this.showTechStackSm = !this.showTechStackSm
+console.log(this.showTechStackSm)
+    if (this.showTechStackSm) {
+      this.renderer.setStyle(this.techStackSm.nativeElement,"display","block")
+      this.renderer.setStyle(this.techStackSm.nativeElement,"transition","0.5s linear ease-in")
+    }else{
+      this.renderer.setStyle(this.techStackSm.nativeElement,"display","none")
+      this.renderer.setStyle(this.techStackSm.nativeElement,"transition","0.5s linear ease-in")
+    }
+  }
       redirect(type:string){
   // this.router.navigate([""])
     if (type === 'facebook') {
