@@ -66,7 +66,7 @@ orientation: string = 'portrait';
   @ViewChild('mainWrapper') mainWrapper!: ElementRef;
   @ViewChild('skillTitle') skillTitle!: ElementRef;
   @ViewChildren('verticalLinesLayer')  verticalLinesLayer!: QueryList<ElementRef>;
-  @ViewChild('techStackSm')techStackSm!:ElementRef
+  // @ViewChild('techStackSm')techStackSm!:ElementRef
 
   isLandscape: boolean = window.innerWidth > window.innerHeight;
   // // Store the initial orientation
@@ -523,7 +523,7 @@ if (this.isLandscape) {
             scrub: 2,
     snap:{
       snapTo:1,
-              duration: 1.2,
+              duration: 1,
     },
             start: 'top top',
             end: 'bottom top',
@@ -563,32 +563,8 @@ opacity:0,
   opacity:0,
           duration:20
         },"-=1")
-        // .from('.about-header-wrapper span', {
-        //   width: 0,
-        //   duration: 7,
-        // })
-        // .from('.about-header-wrapper h3', {
-        //   y: '6vh',
-        //   stagger: 0.1,
-        //   opacity: 0,
-        //   duration: 7,
-        // })
-        // .from('.about-description-sm p', {
-        //   opacity: 0,
-        //   y: 75,
-        //   duration: 5,
-        // })
-        // .from('.services-header-wrapper-sm h3', {
-        //   x: '-25vw',
-        //   opacity: 0,
-        //   duration: 8,
-        // })
-        // .from('.service-item-sm', {
-        //   stagger: 0.3,
-        //   transform: 'scale(0.5)',
-        //   opacity: 0,
-        //   duration: 8,
-        // });
+
+
       gsap
         .timeline()
         .from('.hero-phrase-stagger-sm p', {
@@ -1033,11 +1009,30 @@ opacity:0,
     this.showTechStackSm = !this.showTechStackSm
 console.log(this.showTechStackSm)
     if (this.showTechStackSm) {
-      this.renderer.setStyle(this.techStackSm.nativeElement,"display","block")
-      this.renderer.setStyle(this.techStackSm.nativeElement,"transition","0.5s linear ease-in")
+
+    gsap.timeline()
+    .to(".techstack-sm-item",{
+      stagger:0.1,
+      transform:"scale(1)",
+      opacity:1,
+      duration:0.3
+    })
+    .to(".techstack-overlay",{
+        height:"50%",
+        opacity:1
+      },"-=1")
     }else{
-      this.renderer.setStyle(this.techStackSm.nativeElement,"display","none")
-      this.renderer.setStyle(this.techStackSm.nativeElement,"transition","0.5s linear ease-in")
+      gsap.timeline()
+      .to(".techstack-sm-item",{
+        stagger:0.1,
+        transform:"scale(0.5)",
+        opacity:0,
+      duration:0.3
+      })
+      .to(".techstack-overlay",{
+        height:0,
+        opacity:0
+      },"-=0.2")
     }
   }
       redirect(type:string){

@@ -916,18 +916,51 @@ width: 100%;
 }
 .techstack-overlay{
     position: absolute;
-    width: 80%;
-    height: 40%;
-    background: rgba(255,255,255,0.3);
--webkit-backdrop-filter: blur(10px);
-backdrop-filter: blur(10px);
+    width: 90%;
+    height: 0;
+    opacity: 0;
+    background: rgba(255,255,255,0.2);
+-webkit-backdrop-filter: blur(15px);
+backdrop-filter: blur(15px);
 border: 1px solid rgba(255,255,255,0.25);
 border-radius: 20px;
     top: 50%;
     left: 50%;
     transform: translateX(-50%)translateY(-50%);
     z-index: 3;
-    display: none;
+   display: grid;
+   padding: 5vw;
+    // display: none;
+    grid-template-columns: auto auto auto;
+}
+.techstack-sm-item{
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // flex-direction: column;
+    // height: 15vw;
+    // width: auto;
+    // gap: 2vw;
+    // p{
+    //     margin: 0;
+    //     padding: 0;
+    //     color: #eee;
+    //     font-size: 3vw;
+    // }
+    display: flex;
+     align-items: center;
+     justify-content: space-around;
+     flex-direction: column;
+     svg{
+        width: 7vw;
+        height: auto;
+     }
+    p{
+        margin: 0;
+        padding: 0;
+        color: #eee;
+        font-size: 3vw;
+    }
 }
 .about-letter-stagger-wrapper-sm{
     width: 100%;
