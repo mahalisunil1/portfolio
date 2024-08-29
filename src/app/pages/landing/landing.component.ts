@@ -563,6 +563,25 @@ opacity:0,
   opacity:0,
           duration:20
         },"-=1")
+        const floatAnimation = () => {
+          const tl = gsap.timeline({repeat:-1})
+          /*Can Animation*/
+         tl
+             //move top left
+        //  .to('.tech-stack-button-wrapper button', 1.5, { y:'-=20', x:'+=20',  rotation:'-=5', ease:"power1.inOut"})
+        //      //move down right
+        //  .to('.tech-stack-button-wrapper button', 1, { y:'+=20', x:'-=20', rotation:'-=5', ease:"power1.inOut"})
+         .to('.tech-stack-button-wrapper button', 1.5, { y:'-=20',  rotation:'+=30', ease:"power1.inOut"})
+         .to('.tech-stack-button-wrapper button', 1.5, { y:'+=20',rotation:'-=30', ease:"power1.inOut"})
+        //  .to('.tech-stack-button-wrapper button', 1.5, { y:'-=10', ease:"power1.inOut"})
+        //  .to('.tech-stack-button-wrapper button', 1.5, { y:'+=10', ease:"power1.inOut"})
+        //  .to('.tech-stack-button-wrapper button', 1.5, { y:'-=20', ease:"power1.inOut"})
+        //  .to('.tech-stack-button-wrapper button', 1.5, { y:'+=20', ease:"power1.inOut"})
+        //  .to('.tech-stack-button-wrapper button', 1, { y:'-=20', ease:"power1.inOut"})
+        //  .to('.tech-stack-button-wrapper button', 1, { y:'+=20', ease:"power1.inOut"})
+      //  TweenLite.to(tlCan, 27, {ease:Power1.easeInOut})
+     }
+     floatAnimation();
 
 
       gsap

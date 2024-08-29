@@ -1078,55 +1078,7 @@ border: 1px solid rgba(255,255,255,0.25);
         font-size: 2.3vw;
     }
 }
-// .tech-stack-button-row{
-//     width: 100%;
-//     transform: translateX(-50%);
-//     left: 50%;
-//     height: 12%;
-//     position: absolute;
-//     bottom: 8.5%;
-//     z-index: 6;
-// }
-// // Button 
-// .tech-stack-button-wrapper {
-//     position: absolute;
-//     z-index: 1;
-//     display: inline-block;
-//    bottom: 8%;
-//    right: 0;
-//    display: flex;
-//    align-items: center;
-//    justify-content: center;
-//    button{
-//     position: relative;
-//     margin: 0;
-//     padding: 0;
-//     right: 50%;
-//     background: #f7851c;
-//     mat-icon{
-//         color: #eee;
-//     }
-//    }
-//     svg {
-//       position: relative;
-//       z-index: -1;
-//       display: block;
-//       width:5rem;
-//       height:5rem;
-//     }
-//     text {
-//       font-size: 4vw;
-//       font-weight:900;
-//       transform-origin: center;
-//     }
-//   }
-//   // Animation
-//   @keyframes rotate-btn{
-//     to{ transform: rotate(360deg); }
-//   }
-//   .tech-stack-button-wrapper text{
-//     animation: rotate-btn 10s linear infinite;
-//   }
+
 
 // Experimental area
 .mobile-landscape-warning{
