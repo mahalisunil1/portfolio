@@ -1012,7 +1012,7 @@ console.log(this.showTechStackSm)
 
     gsap.timeline()
     .to(".techstack-sm-item",{
-      stagger:0.1,
+      // stagger:0.1,
       transform:"scale(1)",
       opacity:1,
       duration:0.3
@@ -1024,7 +1024,7 @@ console.log(this.showTechStackSm)
     }else{
       gsap.timeline()
       .to(".techstack-sm-item",{
-        stagger:0.1,
+        // stagger:0.1,
         transform:"scale(0.5)",
         opacity:0,
       duration:0.3
